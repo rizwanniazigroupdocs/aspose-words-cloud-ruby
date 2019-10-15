@@ -39,12 +39,11 @@ module AsposeWordsCloud
       remote_name = 'TestGetDocumentHyperlinkByIndex.docx'
       index = 0
 
-      st_request = PutCreateRequest.new remote_test_folder + test_folder + '/' + remote_name, File.open(local_common_folder + filename, "r").read
-      @storage_api.put_create st_request
+      upload_file File.join(local_common_folder, filename), File.join(remote_test_folder, test_folder, remote_name)
 
       request = GetDocumentHyperlinkByIndexRequest.new remote_name, index, remote_test_folder + test_folder
       result = @words_api.get_document_hyperlink_by_index request
-      assert_equal 200, result.code
+      assert_equal FALSE, result.nil?
     end
 
     #
@@ -54,12 +53,11 @@ module AsposeWordsCloud
       filename = 'test_doc.docx'
       remote_name = 'TestGetDocumentHyperlinks.docx'
 
-      st_request = PutCreateRequest.new remote_test_folder + test_folder + '/' + remote_name, File.open(local_common_folder + filename, "r").read
-      @storage_api.put_create st_request
+      upload_file File.join(local_common_folder, filename), File.join(remote_test_folder, test_folder, remote_name)
 
       request = GetDocumentHyperlinksRequest.new remote_name, remote_test_folder + test_folder
       result = @words_api.get_document_hyperlinks request
-      assert_equal 200, result.code
+      assert_equal FALSE, result.nil?
     end
   end
 end

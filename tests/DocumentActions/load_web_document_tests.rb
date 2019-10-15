@@ -34,7 +34,7 @@ module AsposeWordsCloud
     #
     # Test for loading web document
     #
-    def test_post_load_web_document
+    def test_load_web_document
       save_options = SaveOptionsData.new(
           {
               :FileName => 'google.doc',
@@ -46,9 +46,9 @@ module AsposeWordsCloud
               :ZipOutput => false
           })
       body = LoadWebDocumentData.new({ :LoadingDocumentUrl => "http://google.com", :SaveOptions => save_options })
-      request = PostLoadWebDocumentRequest.new body
-      result = @words_api.post_load_web_document request
-      assert_equal 200, result.code
+      request = LoadWebDocumentRequest.new body
+      result = @words_api.load_web_document request
+      assert_equal FALSE, result.nil?
     end
   end
 end

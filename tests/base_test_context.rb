@@ -27,34 +27,42 @@
 module AsposeWordsCloud
   require "minitest/autorun"
   require "minitest/unit"
+  require 'securerandom'
   require_relative '../lib/aspose_words_cloud'
-  require 'aspose_storage_cloud'
   class BaseTestContext < Minitest::Test
-    include AsposeStorageCloud
     include MiniTest::Assertions
     def setup
-      file = File.read('Settings/servercreds.json')
-      if file.length == 0
-        raise ArgumentError, 'Put your credentials into servercreds.json'
-      end
+      creds_file = 'Settings/servercreds.json'
+      raise ArgumentError, 'Put your credentials into servercreds.json' unless File.exist? creds_file
+      file = File.read(creds_file)
       creds = JSON.parse(file)
       AsposeWordsCloud.configure do |config|
         config.api_key['api_key'] = creds['AppKey']
         config.api_key['app_sid'] = creds['AppSid']
         config.host = creds['BaseUrl']
-        AsposeStorageCloud.configure do |st_conf|
-          st_conf.api_key['api_key'] = config.api_key['api_key']
-          st_conf.api_key['app_sid'] = config.api_key['app_sid']
-          st_conf.host = creds['BaseUrl']
-          st_conf.scheme = config.scheme
-        end
       end
       @words_api = WordsApi.new
-      @storage_api = StorageApi.new
+    end
+
+    def upload_file(file_path, remote_path)
+      request = UploadFileRequest.new File.new(file_path, 'rb'), remote_path
+      @words_api.upload_file request
+    end
+
+    def debug(str)
+      @words_api.api_client.config.logger.debug str
+    end
+
+    def generate_uuid
+      SecureRandom.uuid
     end
 
     def local_test_folder
       'TestData/'
+    end
+
+    def local_range_folder
+      'TestData/DocumentElements/Range'
     end
 
     def remote_test_folder

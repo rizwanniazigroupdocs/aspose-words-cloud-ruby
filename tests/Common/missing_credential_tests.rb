@@ -1,6 +1,6 @@
 #
 # --------------------------------------------------------------------------------------------------------------------
-# <copyright company="Aspose" file="error_handling_tests.rb">
+# <copyright company="Aspose" file="api_coverage_tests.rb">
 #   Copyright (c) 2018 Aspose.Words for Cloud
 # </copyright>
 # <summary>
@@ -25,22 +25,27 @@
 # --------------------------------------------------------------------------------------------------------------------
 #
 module AsposeWordsCloud
-  require_relative '../base_test_context'
-  class ErrorHandlingTests < BaseTestContext
+    require_relative '../base_test_context'
+    class MissingCredentialsTests < BaseTestContext
+        alias :super_setup :setup
+        def setup
+            File.rename('Settings/servercreds.json', 'Settings/servercreds1.json');
+        end
 
-    #
-    # Test for checking handle of server errors
-    #
-    def test_handle_server_errors
-      remote_name = 'noFileWithThisName.docx'
-      request = GetSectionRequest.new remote_name, ''
-      begin
-        @words_api.get_section request
-        assert_throws 'FAILED'
-      rescue ApiError => e
-        assert_equal 404, e.code
-      rescue
-      end
+        def teardown
+            File.rename('Settings/servercreds1.json', 'Settings/servercreds.json');
+        end
+
+        def test_missing_credentials
+            begin
+                super_setup()
+                assert_throws 'FAILED'
+            rescue ArgumentError => e
+                puts e.inspect
+            else 
+                assert_throws 'FAILED'
+            end
+        end
     end
   end
-end
+  
