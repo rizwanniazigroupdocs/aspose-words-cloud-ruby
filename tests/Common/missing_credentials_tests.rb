@@ -1,6 +1,6 @@
 #
 # --------------------------------------------------------------------------------------------------------------------
-# <copyright company="Aspose" file="api_coverage_tests.rb">
+# <copyright company="Aspose" file="missing_credentials_tests.rb">
 #   Copyright (c) 2019 Aspose.Words for Cloud
 # </copyright>
 # <summary>
@@ -36,6 +36,8 @@ module AsposeWordsCloud
             File.rename('Settings/servercreds1.json', 'Settings/servercreds.json');
         end
 
+        #
+        # Test for base class throwing exception if credentials file is missing
         def test_missing_credentials
             begin
                 super_setup()
