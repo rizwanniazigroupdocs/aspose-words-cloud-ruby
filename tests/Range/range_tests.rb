@@ -1,7 +1,7 @@
 #
 # --------------------------------------------------------------------------------------------------------------------
-# <copyright company="Aspose" file="file_tests.rb">
-#   Copyright (c) 2018 Aspose.Words for Cloud
+# <copyright company="Aspose" file="range_tests.rb">
+#   Copyright (c) 2019 Aspose.Words for Cloud
 # </copyright>
 # <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,6 +31,9 @@ module AsposeWordsCloud
             'Temp/SdkTests/TestData'
         end
   
+        #
+        # Test for getting range text from document
+        #
         def test_get_range_text
             range_start = 'id0.0.0'
             range_end = 'id0.0.1'
@@ -46,6 +49,9 @@ module AsposeWordsCloud
             assert_equal expected_text, result.text
         end
 
+        #
+        # Test for removing range text from document
+        #
         def test_remove_range
             range_start = 'id0.0.0'
             range_end = 'id0.0.1'
@@ -60,6 +66,9 @@ module AsposeWordsCloud
             assert_equal FALSE, result.nil?
         end
 
+        #
+        # Test for saving as range
+        #
         def test_save_as_range
             range_start = 'id0.0.0'
             range_end = 'id0.0.1'
@@ -77,7 +86,10 @@ module AsposeWordsCloud
             result = @words_api.download_file DownloadFileRequest.new(new_doc_name)
             assert_equal FALSE, result.nil?
         end
-    
+
+        #
+        # Test for replacing range with text
+        #
         def test_replace_with_text
             range_start = 'id0.0.0'
             range_end = 'id0.0.1'
