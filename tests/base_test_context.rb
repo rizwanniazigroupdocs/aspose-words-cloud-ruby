@@ -61,10 +61,6 @@ module AsposeWordsCloud
       'TestData/'
     end
 
-    def local_range_folder
-      'TestData/DocumentElements/Range'
-    end
-
     def remote_test_folder
       'Temp/SdkTests/ruby/'
     end

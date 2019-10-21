@@ -38,7 +38,7 @@ module AsposeWordsCloud
     def test_append_document
       filename = 'test_multi_pages.docx'
       remote_name = 'TestAppendDocument.docx'
-      remote_path = File.join(remote_test_folder, remote_name)
+      remote_path = File.join(remote_test_folder, test_folder, remote_name)
       dest_name = remote_test_out + remote_name
       doc_entry = DocumentEntry.new({:Href => remote_path, :ImportFormatMode => "KeepSourceFormatting"})
       body = DocumentEntryList.new({:DocumentEntries => [doc_entry]})

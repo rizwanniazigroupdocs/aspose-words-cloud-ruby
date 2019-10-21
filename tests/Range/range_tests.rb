@@ -28,7 +28,7 @@ module AsposeWordsCloud
     require_relative '../base_test_context'
     class RangeTests < BaseTestContext
         def test_folder
-            'Temp/SdkTests/TestData'
+            'TestData/DocumentElements/Range'
         end
   
         #
@@ -42,9 +42,9 @@ module AsposeWordsCloud
             local_name = 'RangeGet.doc'
             remote_name = 'TestGetRangeText.doc'
 
-            upload_file File.join(local_range_folder, local_name), File.join(remote_test_folder, remote_name)
+            upload_file File.join(test_folder, local_name), File.join(remote_test_folder + test_folder, remote_name)
 
-            request = GetRangeTextRequest.new remote_name, range_start, range_end, remote_test_folder
+            request = GetRangeTextRequest.new remote_name, range_start, range_end, remote_test_folder + test_folder
             result = @words_api.get_range_text request
             assert_equal expected_text, result.text
         end
@@ -59,9 +59,9 @@ module AsposeWordsCloud
             local_name = 'RangeGet.doc'
             remote_name = 'TestRemoveRange.doc'
 
-            upload_file File.join(local_range_folder, local_name), File.join(remote_test_folder, remote_name)
+            upload_file File.join(test_folder, local_name), File.join(remote_test_folder + test_folder, remote_name)
 
-            request = RemoveRangeRequest.new remote_name, range_start, range_end, remote_test_folder
+            request = RemoveRangeRequest.new remote_name, range_start, range_end, remote_test_folder + test_folder
             result = @words_api.remove_range request
             assert_equal FALSE, result.nil?
         end
@@ -72,15 +72,15 @@ module AsposeWordsCloud
         def test_save_as_range
             range_start = 'id0.0.0'
             range_end = 'id0.0.1'
-            new_doc_name = File.join remote_test_folder, "NewDoc.docx"
+            new_doc_name = File.join remote_test_folder + test_folder, "NewDoc.docx"
             range_doc = RangeDocument.new :DocumentName => new_doc_name
             debug range_doc.document_name
             local_name = 'RangeGet.doc'
             remote_name = 'TestSaveAsRange.doc'
 
-            upload_file File.join(local_range_folder, local_name), File.join(remote_test_folder, remote_name)
+            upload_file File.join(test_folder, local_name), File.join(remote_test_folder + test_folder + test_folder, remote_name)
 
-            request = SaveAsRangeRequest.new remote_name, range_start, range_doc, range_end, remote_test_folder
+            request = SaveAsRangeRequest.new remote_name, range_start, range_doc, range_end, remote_test_folder + test_folder + test_folder
             result = @words_api.save_as_range request
 
             result = @words_api.download_file DownloadFileRequest.new(new_doc_name)
@@ -99,9 +99,9 @@ module AsposeWordsCloud
             local_name = 'RangeGet.doc'
             remote_name = 'TestRemoveRange.doc'
 
-            upload_file File.join(local_range_folder, local_name), File.join(remote_test_folder, remote_name)
+            upload_file File.join(test_folder, local_name), File.join(remote_test_folder + test_folder + test_folder, remote_name)
 
-            request = ReplaceWithTextRequest.new remote_name, range_start, replacement, range_end, remote_test_folder
+            request = ReplaceWithTextRequest.new remote_name, range_start, replacement, range_end, remote_test_folder + test_folder + test_folder
             result = @words_api.replace_with_text request
             assert_equal FALSE, result.nil?
         end

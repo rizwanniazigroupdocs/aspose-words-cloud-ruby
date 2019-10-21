@@ -47,10 +47,10 @@ module AsposeWordsCloud
     def test_classify_document
       filename = 'test_multi_pages.docx'
       remote_name = 'Source.docx'
-      remote_path = remote_test_folder + remote_name
+      remote_path = remote_test_folder + '/' + test_folder + '/' + remote_name
       upload_file File.join(local_common_folder, filename), remote_path
 	  
-	    request = ClassifyDocumentRequest.new remote_name, remote_test_folder
+	    request = ClassifyDocumentRequest.new remote_name, remote_test_folder + '/' + test_folder
       result = @words_api.classify_document request
       assert_equal false, result.nil?
     end
@@ -61,11 +61,11 @@ module AsposeWordsCloud
     def test_classify_taxonomy_documents
       filename = 'test_multi_pages.docx'
       remote_name = 'Source.docx'
-      remote_path = remote_test_folder + remote_name
+      remote_path = remote_test_folder + '/' + test_folder + '/' + remote_name
       taxonomy = 'documents'
       upload_file File.join(local_common_folder, filename), remote_path
 	    
-      request = ClassifyDocumentRequest.new remote_name, remote_test_folder, taxonomy: taxonomy
+      request = ClassifyDocumentRequest.new remote_name, remote_test_folder + '/' + test_folder, taxonomy: taxonomy
       
 	    result = @words_api.classify_document request
       assert_equal false, result.nil?
