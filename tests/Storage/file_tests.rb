@@ -56,6 +56,9 @@ module AsposeWordsCloud
         upload_file File.join(local_common_folder, filename), remote_path_src
         request = CopyFileRequest.new remote_path_dst, remote_path_src
         response = @words_api.copy_file request
+
+        assert(exists?(test_folder, remote_name), "Source file is missing")
+        assert(exists?(test_folder, remote_name_dst), "Dest file is missing")
       end
 
       #

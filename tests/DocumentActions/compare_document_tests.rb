@@ -44,12 +44,12 @@ module AsposeWordsCloud
       dest_name = remote_test_out + 'TestCompareOut.doc'
       compare_data = CompareData.new({
                                          :Author => 'author',
-                                         :ComparingWithDocument => remote_test_folder + '/' + remote_name2,
+                                         :ComparingWithDocument => remote_test_folder + '/' + test_folder + '/' + remote_name2,
                                          :DateTime => DateTime.now})
-      upload_file File.join(local_test_folder, test_folder, local_name1), File.join(remote_test_folder, remote_name1)
-      upload_file File.join(local_test_folder, test_folder, local_name2), File.join(remote_test_folder, remote_name2)
+      upload_file File.join(local_test_folder, test_folder, local_name1), File.join(remote_test_folder + '/' + test_folder, remote_name1)
+      upload_file File.join(local_test_folder, test_folder, local_name2), File.join(remote_test_folder + '/' + test_folder, remote_name2)
 
-      request = CompareDocumentRequest.new remote_name1, compare_data, remote_test_folder , :dest_file_name => dest_name
+      request = CompareDocumentRequest.new remote_name1, compare_data, remote_test_folder + '/' + test_folder , :dest_file_name => dest_name
       result = @words_api.compare_document request
       assert_equal false, result.document.nil?
     end

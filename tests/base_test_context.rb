@@ -72,5 +72,11 @@ module AsposeWordsCloud
     def local_common_folder
       'TestData/Common/'
     end
+
+    def exists?(folder, name)
+      request = GetFilesListRequest.new folder
+      result = @words_api.get_files_list request
+      !result.value.find{|f| f.name == name}.nil?
+    end
   end
 end
