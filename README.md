@@ -87,7 +87,12 @@ gem install aspose_words_cloud
 ### Sample usage
 ```ruby
     # Start README example
-
+    AsposeWordsCloud.configure do |config|
+            config.api_key['api_key'] = AppKey
+            config.api_key['app_sid'] = AppSid
+            config.host = host
+    request = DeleteWatermarkRequest.new remote_name, remote_test_folder + test_folder
+    result = @words_api.delete_watermark request
     # End README example
 ```
 
