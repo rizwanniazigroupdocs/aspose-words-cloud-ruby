@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------------
-# <copyright company="Aspose" file="Document_tests.rb">
+# <copyright company="Aspose" file="get_paragraphs_online_request.rb">
 #   Copyright (c) 2020 Aspose.Words for Cloud
 # </copyright>
 # <summary>
@@ -22,46 +22,37 @@
 #  SOFTWARE.
 # </summary>
 # ------------------------------------------------------------------------------------
+
 module AsposeWordsCloud
-  require_relative '../base_test_context'
 
   #
-  # Example of how to get document.
+  # Request model for get_paragraphs_online operation.
   #
-  class DocumentTests < BaseTestContext
-    def remote_data_folder
-      remote_test_folder + '/DocumentActions/Document'
-    end
+  class GetParagraphsOnlineRequest
+    # Path to the node which contains paragraphs.
+    attr_accessor :node_path
 
-    def local_file
-      'Common/test_multi_pages.docx'
-    end
+    # The document.
+    attr_accessor :document
 
+    # Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    attr_accessor :load_encoding
 
-    #
-    # Test for getting document.
-    #
-    def test_get_document
-      remote_file_name = 'TestGetDocument.docx'
-
-      upload_file File.join(local_test_folder, local_file), remote_data_folder + '/' + remote_file_name
-
-      request = GetDocumentRequest.new(remote_file_name, remote_data_folder, nil, nil, nil)
-
-      result = @words_api.get_document(request)
-      assert_equal false, result.nil?
-    end
+    # Password for opening an encrypted document.
+    attr_accessor :password
 
     #
-    # Test for creating word document.
-    #
-    def test_create_document
-      remote_file_name = 'TestCreateDocument.doc'
+    # Initializes a new instance.
+    # @param node_path Path to the node which contains paragraphs.
+    # @param document The document.
+    # @param load_encoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    # @param password Password for opening an encrypted document.
 
-      request = CreateDocumentRequest.new(remote_file_name, remote_data_folder, nil)
-
-      result = @words_api.create_document(request)
-      assert_equal false, result.nil?
+    def initialize(node_path, document, load_encoding = nil, password = nil)
+      self.node_path = node_path
+      self.document = document
+      self.load_encoding = load_encoding
+      self.password = password
     end
   end
 end

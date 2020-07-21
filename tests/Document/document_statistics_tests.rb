@@ -51,5 +51,15 @@ module AsposeWordsCloud
       result = @words_api.get_document_statistics(request)
       assert_equal false, result.nil?
     end
+
+    #
+    # Test for document classification online.
+    #
+    def test_get_document_statistics_online
+      request = GetDocumentStatisticsOnlineRequest.new(File.open(File.join(local_test_folder, local_file)), nil, nil, nil)
+
+      result = @words_api.get_document_statistics_online(request)
+      assert_equal false, result.nil?
+    end
   end
 end

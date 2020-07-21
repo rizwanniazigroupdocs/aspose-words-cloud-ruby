@@ -179,6 +179,72 @@ module AsposeWordsCloud
         [data, status_code, headers]
     end
 
+    # Appends documents to original document.
+    # @param request AppendDocumentOnlineRequest
+    # @return [File]
+    def append_document_online(request)
+        begin
+        data, _status_code, _headers = append_document_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = append_document_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Appends documents to original document.
+    # @param request AppendDocumentOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def append_document_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? AppendDocumentOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.append_document_online ...' if @api_client.config.debugging
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.append_document_online' if @api_client.config.client_side_validation && request.document.nil?
+        # verify the required parameter 'document_list' is set
+        raise ArgumentError, 'Missing the required parameter document_list when calling WordsApi.append_document_online' if @api_client.config.client_side_validation && request.document_list.nil?
+
+        # resource path
+        local_var_path = '/words/online/appendDocument'[1..-1]
+
+        # query parameters
+        query_params = {}
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+        form_params[downcase_first_letter('DocumentList')] = request.document_list.to_body.to_json
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#append_document_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
     # Apply a style to the document node.
     # @param request ApplyStyleToDocumentElementRequest
     # @return [WordsResponse]
@@ -636,9 +702,9 @@ module AsposeWordsCloud
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('Format')] = request.format
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
         query_params[downcase_first_letter('OutPath')] = request.out_path unless request.out_path.nil?
         query_params[downcase_first_letter('FileNameFieldValue')] = request.file_name_field_value unless request.file_name_field_value.nil?
+        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
         query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
 
         # header parameters
@@ -911,9 +977,9 @@ module AsposeWordsCloud
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
         query_params[downcase_first_letter('FileName')] = request.file_name unless request.file_name.nil?
         query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
 
         # header parameters
         header_params = {}
@@ -2960,6 +3026,80 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#delete_paragraph_list_format_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Removes paragraph from section.
+    # @param request DeleteParagraphOnlineRequest
+    # @return [File]
+    def delete_paragraph_online(request)
+        begin
+        data, _status_code, _headers = delete_paragraph_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_paragraph_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Removes paragraph from section.
+    # @param request DeleteParagraphOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def delete_paragraph_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteParagraphOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_paragraph_online ...' if @api_client.config.debugging
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_paragraph_online' if @api_client.config.client_side_validation && request.node_path.nil?
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.delete_paragraph_online' if @api_client.config.client_side_validation && request.document.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_paragraph_online' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/online/{nodePath}/paragraphs/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_paragraph_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -5088,7 +5228,7 @@ module AsposeWordsCloud
 
     # Reads document field names.
     # @param request GetDocumentFieldNamesOnlineRequest
-    # @return [FieldNamesResponse]
+    # @return [File]
     def get_document_field_names_online(request)
         begin
         data, _status_code, _headers = get_document_field_names_online_with_http_info(request)
@@ -5105,17 +5245,17 @@ module AsposeWordsCloud
 
     # Reads document field names.
     # @param request GetDocumentFieldNamesOnlineRequest
-    # @return [Array<(FieldNamesResponse, Fixnum, Hash)>]
-    # FieldNamesResponse data, response status code and response headers
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
     private def get_document_field_names_online_with_http_info(request)
         raise ArgumentError, 'Incorrect request type' unless request.is_a? GetDocumentFieldNamesOnlineRequest
 
         @api_client.config.logger.debug 'Calling API: WordsApi.get_document_field_names_online ...' if @api_client.config.debugging
-        # verify the required parameter 'template' is set
-        raise ArgumentError, 'Missing the required parameter template when calling WordsApi.get_document_field_names_online' if @api_client.config.client_side_validation && request.template.nil?
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.get_document_field_names_online' if @api_client.config.client_side_validation && request.document.nil?
 
         # resource path
-        local_var_path = '/words/mailMerge/FieldNames'[1..-1]
+        local_var_path = '/words/online/mailMerge/FieldNames'[1..-1]
 
         # query parameters
         query_params = {}
@@ -5130,19 +5270,19 @@ module AsposeWordsCloud
 
         # form parameters
         form_params = {}
-        form_params[downcase_first_letter('Template')] = request.template
+        form_params[downcase_first_letter('Document')] = request.document
 
         # http body (model)
         post_body = nil
         auth_names = ['JWT']
 
-        data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
                                                         header_params: header_params,
                                                         query_params: query_params,
                                                         form_params: form_params,
                                                         body: post_body,
                                                         auth_names: auth_names,
-                                                        return_type: 'FieldNamesResponse')
+                                                        return_type: 'File')
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_document_field_names_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
@@ -5557,6 +5697,72 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_document_statistics\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Reads document statistics.
+    # @param request GetDocumentStatisticsOnlineRequest
+    # @return [File]
+    def get_document_statistics_online(request)
+        begin
+        data, _status_code, _headers = get_document_statistics_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_document_statistics_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Reads document statistics.
+    # @param request GetDocumentStatisticsOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_document_statistics_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetDocumentStatisticsOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_document_statistics_online ...' if @api_client.config.debugging
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.get_document_statistics_online' if @api_client.config.client_side_validation && request.document.nil?
+
+        # resource path
+        local_var_path = '/words/online/statistics'[1..-1]
+
+        # query parameters
+        query_params = {}
+        query_params[downcase_first_letter('IncludeComments')] = request.include_comments unless request.include_comments.nil?
+        query_params[downcase_first_letter('IncludeFootnotes')] = request.include_footnotes unless request.include_footnotes.nil?
+        query_params[downcase_first_letter('IncludeTextInShapes')] = request.include_text_in_shapes unless request.include_text_in_shapes.nil?
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_document_statistics_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -7172,7 +7378,7 @@ module AsposeWordsCloud
 
     # This resource represents one of the paragraphs contained in the document.
     # @param request GetParagraphRequest
-    # @return [ParagraphResponse]
+    # @return [File]
     def get_paragraph(request)
         begin
         data, _status_code, _headers = get_paragraph_with_http_info(request)
@@ -7189,8 +7395,8 @@ module AsposeWordsCloud
 
     # This resource represents one of the paragraphs contained in the document.
     # @param request GetParagraphRequest
-    # @return [Array<(ParagraphResponse, Fixnum, Hash)>]
-    # ParagraphResponse data, response status code and response headers
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
     private def get_paragraph_with_http_info(request)
         raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphRequest
 
@@ -7235,7 +7441,7 @@ module AsposeWordsCloud
                                                         form_params: form_params,
                                                         body: post_body,
                                                         auth_names: auth_names,
-                                                        return_type: 'ParagraphResponse')
+                                                        return_type: 'File')
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_paragraph\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
@@ -7529,9 +7735,80 @@ module AsposeWordsCloud
         [data, status_code, headers]
     end
 
+    # This resource represents one of the paragraphs contained in the document.
+    # @param request GetParagraphOnlineRequest
+    # @return [File]
+    def get_paragraph_online(request)
+        begin
+        data, _status_code, _headers = get_paragraph_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_paragraph_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # This resource represents one of the paragraphs contained in the document.
+    # @param request GetParagraphOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_paragraph_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraph_online ...' if @api_client.config.debugging
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_paragraph_online' if @api_client.config.client_side_validation && request.node_path.nil?
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.get_paragraph_online' if @api_client.config.client_side_validation && request.document.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_paragraph_online' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/online/{nodePath}/paragraphs/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_paragraph_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
     # Returns a list of paragraphs that are contained in the document.
     # @param request GetParagraphsRequest
-    # @return [ParagraphLinkCollectionResponse]
+    # @return [File]
     def get_paragraphs(request)
         begin
         data, _status_code, _headers = get_paragraphs_with_http_info(request)
@@ -7548,8 +7825,8 @@ module AsposeWordsCloud
 
     # Returns a list of paragraphs that are contained in the document.
     # @param request GetParagraphsRequest
-    # @return [Array<(ParagraphLinkCollectionResponse, Fixnum, Hash)>]
-    # ParagraphLinkCollectionResponse data, response status code and response headers
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
     private def get_paragraphs_with_http_info(request)
         raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphsRequest
 
@@ -7591,7 +7868,7 @@ module AsposeWordsCloud
                                                         form_params: form_params,
                                                         body: post_body,
                                                         auth_names: auth_names,
-                                                        return_type: 'ParagraphLinkCollectionResponse')
+                                                        return_type: 'File')
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_paragraphs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
@@ -7600,8 +7877,76 @@ module AsposeWordsCloud
     end
 
     # Returns a list of paragraphs that are contained in the document.
+    # @param request GetParagraphsOnlineRequest
+    # @return [File]
+    def get_paragraphs_online(request)
+        begin
+        data, _status_code, _headers = get_paragraphs_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_paragraphs_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Returns a list of paragraphs that are contained in the document.
+    # @param request GetParagraphsOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_paragraphs_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphsOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraphs_online ...' if @api_client.config.debugging
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_paragraphs_online' if @api_client.config.client_side_validation && request.node_path.nil?
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.get_paragraphs_online' if @api_client.config.client_side_validation && request.document.nil?
+
+        # resource path
+        local_var_path = '/words/online/{nodePath}/paragraphs'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+
+        # query parameters
+        query_params = {}
+        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_paragraphs_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Returns a list of paragraphs that are contained in the document.
     # @param request GetParagraphsWithoutNodePathRequest
-    # @return [ParagraphLinkCollectionResponse]
+    # @return [File]
     def get_paragraphs_without_node_path(request)
         begin
         data, _status_code, _headers = get_paragraphs_without_node_path_with_http_info(request)
@@ -7618,8 +7963,8 @@ module AsposeWordsCloud
 
     # Returns a list of paragraphs that are contained in the document.
     # @param request GetParagraphsWithoutNodePathRequest
-    # @return [Array<(ParagraphLinkCollectionResponse, Fixnum, Hash)>]
-    # ParagraphLinkCollectionResponse data, response status code and response headers
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
     private def get_paragraphs_without_node_path_with_http_info(request)
         raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphsWithoutNodePathRequest
 
@@ -7658,7 +8003,7 @@ module AsposeWordsCloud
                                                         form_params: form_params,
                                                         body: post_body,
                                                         auth_names: auth_names,
-                                                        return_type: 'ParagraphLinkCollectionResponse')
+                                                        return_type: 'File')
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_paragraphs_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
@@ -7811,7 +8156,7 @@ module AsposeWordsCloud
 
     # This resource represents one of the paragraphs contained in the document.
     # @param request GetParagraphWithoutNodePathRequest
-    # @return [ParagraphResponse]
+    # @return [File]
     def get_paragraph_without_node_path(request)
         begin
         data, _status_code, _headers = get_paragraph_without_node_path_with_http_info(request)
@@ -7828,8 +8173,8 @@ module AsposeWordsCloud
 
     # This resource represents one of the paragraphs contained in the document.
     # @param request GetParagraphWithoutNodePathRequest
-    # @return [Array<(ParagraphResponse, Fixnum, Hash)>]
-    # ParagraphResponse data, response status code and response headers
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
     private def get_paragraph_without_node_path_with_http_info(request)
         raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphWithoutNodePathRequest
 
@@ -7871,7 +8216,7 @@ module AsposeWordsCloud
                                                         form_params: form_params,
                                                         body: post_body,
                                                         auth_names: auth_names,
-                                                        return_type: 'ParagraphResponse')
+                                                        return_type: 'File')
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_paragraph_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
@@ -10337,7 +10682,7 @@ module AsposeWordsCloud
 
     # Adds paragraph to document, returns added paragraph's data.
     # @param request InsertParagraphRequest
-    # @return [ParagraphResponse]
+    # @return [File]
     def insert_paragraph(request)
         begin
         data, _status_code, _headers = insert_paragraph_with_http_info(request)
@@ -10354,18 +10699,18 @@ module AsposeWordsCloud
 
     # Adds paragraph to document, returns added paragraph's data.
     # @param request InsertParagraphRequest
-    # @return [Array<(ParagraphResponse, Fixnum, Hash)>]
-    # ParagraphResponse data, response status code and response headers
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
     private def insert_paragraph_with_http_info(request)
         raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertParagraphRequest
 
         @api_client.config.logger.debug 'Calling API: WordsApi.insert_paragraph ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_paragraph' if @api_client.config.client_side_validation && request.name.nil?
-        # verify the required parameter 'paragraph' is set
-        raise ArgumentError, 'Missing the required parameter paragraph when calling WordsApi.insert_paragraph' if @api_client.config.client_side_validation && request.paragraph.nil?
         # verify the required parameter 'node_path' is set
         raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.insert_paragraph' if @api_client.config.client_side_validation && request.node_path.nil?
+        # verify the required parameter 'paragraph' is set
+        raise ArgumentError, 'Missing the required parameter paragraph when calling WordsApi.insert_paragraph' if @api_client.config.client_side_validation && request.paragraph.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs'[1..-1]
@@ -10403,7 +10748,7 @@ module AsposeWordsCloud
                                                         form_params: form_params,
                                                         body: post_body,
                                                         auth_names: auth_names,
-                                                        return_type: 'ParagraphResponse')
+                                                        return_type: 'File')
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#insert_paragraph\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
@@ -10412,8 +10757,83 @@ module AsposeWordsCloud
     end
 
     # Adds paragraph to document, returns added paragraph's data.
+    # @param request InsertParagraphOnlineRequest
+    # @return [File]
+    def insert_paragraph_online(request)
+        begin
+        data, _status_code, _headers = insert_paragraph_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = insert_paragraph_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Adds paragraph to document, returns added paragraph's data.
+    # @param request InsertParagraphOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def insert_paragraph_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertParagraphOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.insert_paragraph_online ...' if @api_client.config.debugging
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.insert_paragraph_online' if @api_client.config.client_side_validation && request.node_path.nil?
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.insert_paragraph_online' if @api_client.config.client_side_validation && request.document.nil?
+        # verify the required parameter 'paragraph' is set
+        raise ArgumentError, 'Missing the required parameter paragraph when calling WordsApi.insert_paragraph_online' if @api_client.config.client_side_validation && request.paragraph.nil?
+
+        # resource path
+        local_var_path = '/words/online/{nodePath}/paragraphs'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+
+        # query parameters
+        query_params = {}
+        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+        form_params[downcase_first_letter('Paragraph')] = request.paragraph.to_body.to_json
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#insert_paragraph_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Adds paragraph to document, returns added paragraph's data.
     # @param request InsertParagraphWithoutNodePathRequest
-    # @return [ParagraphResponse]
+    # @return [File]
     def insert_paragraph_without_node_path(request)
         begin
         data, _status_code, _headers = insert_paragraph_without_node_path_with_http_info(request)
@@ -10430,8 +10850,8 @@ module AsposeWordsCloud
 
     # Adds paragraph to document, returns added paragraph's data.
     # @param request InsertParagraphWithoutNodePathRequest
-    # @return [Array<(ParagraphResponse, Fixnum, Hash)>]
-    # ParagraphResponse data, response status code and response headers
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
     private def insert_paragraph_without_node_path_with_http_info(request)
         raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertParagraphWithoutNodePathRequest
 
@@ -10476,7 +10896,7 @@ module AsposeWordsCloud
                                                         form_params: form_params,
                                                         body: post_body,
                                                         auth_names: auth_names,
-                                                        return_type: 'ParagraphResponse')
+                                                        return_type: 'File')
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#insert_paragraph_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
@@ -12501,6 +12921,73 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#save_as\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Converts document to destination format with detailed settings and saves result to storage.
+    # @param request SaveAsOnlineRequest
+    # @return [File]
+    def save_as_online(request)
+        begin
+        data, _status_code, _headers = save_as_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = save_as_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Converts document to destination format with detailed settings and saves result to storage.
+    # @param request SaveAsOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def save_as_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? SaveAsOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.save_as_online ...' if @api_client.config.debugging
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.save_as_online' if @api_client.config.client_side_validation && request.document.nil?
+        # verify the required parameter 'save_options_data' is set
+        raise ArgumentError, 'Missing the required parameter save_options_data when calling WordsApi.save_as_online' if @api_client.config.client_side_validation && request.save_options_data.nil?
+
+        # resource path
+        local_var_path = '/words/online/saveAs'[1..-1]
+
+        # query parameters
+        query_params = {}
+        query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+        form_params[downcase_first_letter('SaveOptionsData')] = request.save_options_data.to_body.to_json
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#save_as_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end

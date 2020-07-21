@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------------
-# <copyright company="Aspose" file="Document_tests.rb">
+# <copyright company="Aspose" file="get_document_statistics_online_request.rb">
 #   Copyright (c) 2020 Aspose.Words for Cloud
 # </copyright>
 # <summary>
@@ -22,46 +22,37 @@
 #  SOFTWARE.
 # </summary>
 # ------------------------------------------------------------------------------------
+
 module AsposeWordsCloud
-  require_relative '../base_test_context'
 
   #
-  # Example of how to get document.
+  # Request model for get_document_statistics_online operation.
   #
-  class DocumentTests < BaseTestContext
-    def remote_data_folder
-      remote_test_folder + '/DocumentActions/Document'
-    end
+  class GetDocumentStatisticsOnlineRequest
+    # The document.
+    attr_accessor :document
 
-    def local_file
-      'Common/test_multi_pages.docx'
-    end
+    # Support including/excluding comments from the WordCount. Default value is "false".
+    attr_accessor :include_comments
 
+    # Support including/excluding footnotes from the WordCount. Default value is "false".
+    attr_accessor :include_footnotes
 
-    #
-    # Test for getting document.
-    #
-    def test_get_document
-      remote_file_name = 'TestGetDocument.docx'
-
-      upload_file File.join(local_test_folder, local_file), remote_data_folder + '/' + remote_file_name
-
-      request = GetDocumentRequest.new(remote_file_name, remote_data_folder, nil, nil, nil)
-
-      result = @words_api.get_document(request)
-      assert_equal false, result.nil?
-    end
+    # Support including/excluding shape's text from the WordCount. Default value is "false".
+    attr_accessor :include_text_in_shapes
 
     #
-    # Test for creating word document.
-    #
-    def test_create_document
-      remote_file_name = 'TestCreateDocument.doc'
+    # Initializes a new instance.
+    # @param document The document.
+    # @param include_comments Support including/excluding comments from the WordCount. Default value is "false".
+    # @param include_footnotes Support including/excluding footnotes from the WordCount. Default value is "false".
+    # @param include_text_in_shapes Support including/excluding shape's text from the WordCount. Default value is "false".
 
-      request = CreateDocumentRequest.new(remote_file_name, remote_data_folder, nil)
-
-      result = @words_api.create_document(request)
-      assert_equal false, result.nil?
+    def initialize(document, include_comments = nil, include_footnotes = nil, include_text_in_shapes = nil)
+      self.document = document
+      self.include_comments = include_comments
+      self.include_footnotes = include_footnotes
+      self.include_text_in_shapes = include_text_in_shapes
     end
   end
 end

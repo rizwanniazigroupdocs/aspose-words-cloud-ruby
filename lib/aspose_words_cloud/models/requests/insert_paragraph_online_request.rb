@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------------
-# <copyright company="Aspose" file="append_document_request.rb">
+# <copyright company="Aspose" file="insert_paragraph_online_request.rb">
 #   Copyright (c) 2020 Aspose.Words for Cloud
 # </copyright>
 # <summary>
@@ -26,20 +26,17 @@
 module AsposeWordsCloud
 
   #
-  # Request model for append_document operation.
+  # Request model for insert_paragraph_online operation.
   #
-  class AppendDocumentRequest
-    # Original document name.
-    attr_accessor :name
+  class InsertParagraphOnlineRequest
+    # Path to the node which contains paragraphs.
+    attr_accessor :node_path
 
-    # <see cref="DocumentEntryList"/> with a list of documents to append.
-    attr_accessor :document_list
+    # The document.
+    attr_accessor :document
 
-    # Original document folder.
-    attr_accessor :folder
-
-    # Original document storage.
-    attr_accessor :storage
+    # Paragraph data.
+    attr_accessor :paragraph
 
     # Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     attr_accessor :load_encoding
@@ -56,28 +53,31 @@ module AsposeWordsCloud
     # The date and time to use for revisions.
     attr_accessor :revision_date_time
 
+    # Paragraph will be inserted before node with index.
+    attr_accessor :insert_before_node
+
     #
     # Initializes a new instance.
-    # @param name Original document name.
-    # @param document_list <see cref="DocumentEntryList"/> with a list of documents to append.
-    # @param folder Original document folder.
-    # @param storage Original document storage.
+    # @param node_path Path to the node which contains paragraphs.
+    # @param document The document.
+    # @param paragraph Paragraph data.
     # @param load_encoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     # @param password Password for opening an encrypted document.
     # @param dest_file_name Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     # @param revision_author Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
     # @param revision_date_time The date and time to use for revisions.
+    # @param insert_before_node Paragraph will be inserted before node with index.
 
-    def initialize(name, document_list, folder = nil, storage = nil, load_encoding = nil, password = nil, dest_file_name = nil, revision_author = nil, revision_date_time = nil)
-      self.name = name
-      self.document_list = document_list
-      self.folder = folder
-      self.storage = storage
+    def initialize(node_path, document, paragraph, load_encoding = nil, password = nil, dest_file_name = nil, revision_author = nil, revision_date_time = nil, insert_before_node = nil)
+      self.node_path = node_path
+      self.document = document
+      self.paragraph = paragraph
       self.load_encoding = load_encoding
       self.password = password
       self.dest_file_name = dest_file_name
       self.revision_author = revision_author
       self.revision_date_time = revision_date_time
+      self.insert_before_node = insert_before_node
     end
   end
 end

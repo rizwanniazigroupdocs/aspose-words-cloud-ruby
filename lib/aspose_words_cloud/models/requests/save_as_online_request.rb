@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------------
-# <copyright company="Aspose" file="Document_tests.rb">
+# <copyright company="Aspose" file="save_as_online_request.rb">
 #   Copyright (c) 2020 Aspose.Words for Cloud
 # </copyright>
 # <summary>
@@ -22,46 +22,32 @@
 #  SOFTWARE.
 # </summary>
 # ------------------------------------------------------------------------------------
+
 module AsposeWordsCloud
-  require_relative '../base_test_context'
 
   #
-  # Example of how to get document.
+  # Request model for save_as_online operation.
   #
-  class DocumentTests < BaseTestContext
-    def remote_data_folder
-      remote_test_folder + '/DocumentActions/Document'
-    end
+  class SaveAsOnlineRequest
+    # The document.
+    attr_accessor :document
 
-    def local_file
-      'Common/test_multi_pages.docx'
-    end
+    # Save options.
+    attr_accessor :save_options_data
 
-
-    #
-    # Test for getting document.
-    #
-    def test_get_document
-      remote_file_name = 'TestGetDocument.docx'
-
-      upload_file File.join(local_test_folder, local_file), remote_data_folder + '/' + remote_file_name
-
-      request = GetDocumentRequest.new(remote_file_name, remote_data_folder, nil, nil, nil)
-
-      result = @words_api.get_document(request)
-      assert_equal false, result.nil?
-    end
+    # Folder in filestorage with custom fonts.
+    attr_accessor :fonts_location
 
     #
-    # Test for creating word document.
-    #
-    def test_create_document
-      remote_file_name = 'TestCreateDocument.doc'
+    # Initializes a new instance.
+    # @param document The document.
+    # @param save_options_data Save options.
+    # @param fonts_location Folder in filestorage with custom fonts.
 
-      request = CreateDocumentRequest.new(remote_file_name, remote_data_folder, nil)
-
-      result = @words_api.create_document(request)
-      assert_equal false, result.nil?
+    def initialize(document, save_options_data, fonts_location = nil)
+      self.document = document
+      self.save_options_data = save_options_data
+      self.fonts_location = fonts_location
     end
   end
 end

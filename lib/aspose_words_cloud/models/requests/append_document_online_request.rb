@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------------
-# <copyright company="Aspose" file="Document_tests.rb">
+# <copyright company="Aspose" file="append_document_online_request.rb">
 #   Copyright (c) 2020 Aspose.Words for Cloud
 # </copyright>
 # <summary>
@@ -22,46 +22,27 @@
 #  SOFTWARE.
 # </summary>
 # ------------------------------------------------------------------------------------
+
 module AsposeWordsCloud
-  require_relative '../base_test_context'
 
   #
-  # Example of how to get document.
+  # Request model for append_document_online operation.
   #
-  class DocumentTests < BaseTestContext
-    def remote_data_folder
-      remote_test_folder + '/DocumentActions/Document'
-    end
+  class AppendDocumentOnlineRequest
+    # The document.
+    attr_accessor :document
 
-    def local_file
-      'Common/test_multi_pages.docx'
-    end
-
+    # <see cref="DocumentEntryList"/> with a list of documents to append.
+    attr_accessor :document_list
 
     #
-    # Test for getting document.
-    #
-    def test_get_document
-      remote_file_name = 'TestGetDocument.docx'
+    # Initializes a new instance.
+    # @param document The document.
+    # @param document_list <see cref="DocumentEntryList"/> with a list of documents to append.
 
-      upload_file File.join(local_test_folder, local_file), remote_data_folder + '/' + remote_file_name
-
-      request = GetDocumentRequest.new(remote_file_name, remote_data_folder, nil, nil, nil)
-
-      result = @words_api.get_document(request)
-      assert_equal false, result.nil?
-    end
-
-    #
-    # Test for creating word document.
-    #
-    def test_create_document
-      remote_file_name = 'TestCreateDocument.doc'
-
-      request = CreateDocumentRequest.new(remote_file_name, remote_data_folder, nil)
-
-      result = @words_api.create_document(request)
-      assert_equal false, result.nil?
+    def initialize(document, document_list)
+      self.document = document
+      self.document_list = document_list
     end
   end
 end

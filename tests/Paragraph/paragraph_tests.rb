@@ -61,6 +61,16 @@ module AsposeWordsCloud
     end
 
     #
+    # Test for getting paragraph online.
+    #
+    def test_get_document_paragraph_online
+      request = GetParagraphOnlineRequest.new('sections/0', File.open(File.join(local_test_folder, local_file)), 0, nil, nil)
+
+      result = @words_api.get_paragraph_online(request)
+      assert_equal false, result.nil?
+    end
+
+    #
     # Test for getting paragraph without node path.
     #
     def test_get_document_paragraph_by_index_without_node_path
@@ -85,6 +95,16 @@ module AsposeWordsCloud
       request = GetParagraphsRequest.new(remote_file_name, 'sections/0', remote_data_folder, nil, nil, nil)
 
       result = @words_api.get_paragraphs(request)
+      assert_equal false, result.nil?
+    end
+
+    #
+    # Test for getting all paragraphs online.
+    #
+    def test_get_document_paragraphs_online
+      request = GetParagraphsOnlineRequest.new('sections/0', File.open(File.join(local_test_folder, local_file)), nil, nil)
+
+      result = @words_api.get_paragraphs_online(request)
       assert_equal false, result.nil?
     end
 
@@ -168,9 +188,20 @@ module AsposeWordsCloud
       upload_file File.join(local_test_folder, local_file), remote_data_folder + '/' + remote_file_name
 
       request_paragraph = ParagraphInsert.new({:Text => 'This is a new paragraph for your document'})
-      request = InsertParagraphRequest.new(remote_file_name, request_paragraph, 'sections/0', remote_data_folder, nil, nil, nil, nil, nil, nil, nil)
+      request = InsertParagraphRequest.new(remote_file_name, 'sections/0', request_paragraph, remote_data_folder, nil, nil, nil, nil, nil, nil, nil)
 
       result = @words_api.insert_paragraph(request)
+      assert_equal false, result.nil?
+    end
+
+    #
+    # Test for adding paragraph online.
+    #
+    def test_insert_paragraph_online
+      request_paragraph = ParagraphInsert.new({:Text => 'This is a new paragraph for your document'})
+      request = InsertParagraphOnlineRequest.new('sections/0', File.open(File.join(local_test_folder, local_file)), request_paragraph, nil, nil, nil, nil, nil, nil)
+
+      result = @words_api.insert_paragraph_online(request)
       assert_equal false, result.nil?
     end
 
@@ -271,6 +302,16 @@ module AsposeWordsCloud
       request = DeleteParagraphRequest.new(remote_file_name, '', 0, remote_data_folder, nil, nil, nil, nil, nil, nil)
 
       @words_api.delete_paragraph(request)
+    end
+
+    #
+    # Test for deleting  a paragraph online.
+    #
+    def test_delete_paragraph_online
+      request = DeleteParagraphOnlineRequest.new('', File.open(File.join(local_test_folder, local_file)), 0, nil, nil, nil, nil, nil)
+
+      result = @words_api.delete_paragraph_online(request)
+      assert_equal false, result.nil?
     end
 
     #

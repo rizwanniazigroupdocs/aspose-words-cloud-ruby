@@ -29,25 +29,25 @@ module AsposeWordsCloud
   # Request model for create_document operation.
   #
   class CreateDocumentRequest
-    # Original document storage.
-    attr_accessor :storage
-
     # The document name.
     attr_accessor :file_name
 
     # The document folder.
     attr_accessor :folder
 
+    # Original document storage.
+    attr_accessor :storage
+
     #
     # Initializes a new instance.
-    # @param storage Original document storage.
     # @param file_name The document name.
     # @param folder The document folder.
+    # @param storage Original document storage.
 
-    def initialize(storage = nil, file_name = nil, folder = nil)
-      self.storage = storage
+    def initialize(file_name = nil, folder = nil, storage = nil)
       self.file_name = file_name
       self.folder = folder
+      self.storage = storage
     end
   end
 end
