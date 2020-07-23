@@ -69,7 +69,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/revisions/acceptAll'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -139,7 +140,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/appendDocument'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -213,8 +215,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{styledNodePath}/style'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyledNodePath') + '}', request.styled_node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyledNodePath') + '}', request.styled_node_path.nil? ? '' : request.styled_node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -288,7 +291,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/buildReport'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -362,6 +366,7 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/buildReport'[1..-1]
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -428,6 +433,7 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/classify'[1..-1]
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -491,7 +497,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{documentName}/classify'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('DocumentName') + '}', request.document_name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('DocumentName') + '}', request.document_name.nil? ? '' : request.document_name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -562,7 +569,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/compareDocument'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -632,6 +640,7 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/convert'[1..-1]
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -702,7 +711,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/file/copy/{srcPath}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.nil? ? '' : request.src_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -770,7 +780,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/folder/copy/{srcPath}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.nil? ? '' : request.src_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -837,7 +848,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/styles/copy'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -908,6 +920,7 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.create_document ...' if @api_client.config.debugging
         # resource path
         local_var_path = '/words/create'[1..-1]
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -973,7 +986,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/folder/{path}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.nil? ? '' : request.path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1040,8 +1054,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/documentProperties/{propertyName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('PropertyName') + '}', request.property_name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('PropertyName') + '}', request.property_name.nil? ? '' : request.property_name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1113,9 +1128,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/tabstops'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1185,9 +1201,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/borders/{borderType}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('BorderType') + '}', request.border_type.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('BorderType') + '}', request.border_type.nil? ? '' : request.border_type.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1257,8 +1274,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/borders'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1330,8 +1348,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/comments/{commentIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('CommentIndex') + '}', request.comment_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('CommentIndex') + '}', request.comment_index.nil? ? '' : request.comment_index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1402,8 +1421,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/documentProperties/{propertyName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('PropertyName') + '}', request.property_name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('PropertyName') + '}', request.property_name.nil? ? '' : request.property_name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1474,9 +1494,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1547,9 +1568,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/fields/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1618,8 +1640,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/fields'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1688,7 +1711,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/file/{path}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.nil? ? '' : request.path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1752,7 +1776,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/folder/{path}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.nil? ? '' : request.path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1818,9 +1843,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/footnotes/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1891,9 +1917,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/formfields/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -1966,9 +1993,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{sectionPath}/headersfooters/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.nil? ? '' : request.section_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2039,8 +2067,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{sectionPath}/headersfooters'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.nil? ? '' : request.section_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2110,7 +2139,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/macros'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2181,9 +2211,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/OfficeMathObjects/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2254,9 +2285,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2327,9 +2359,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/listFormat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2403,9 +2436,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/tabstop'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2478,9 +2512,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2551,8 +2586,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/sections/{sectionIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.nil? ? '' : request.section_index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2623,9 +2659,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2698,9 +2735,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tableRowPath}/cells/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.nil? ? '' : request.table_row_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2773,9 +2811,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tablePath}/rows/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.nil? ? '' : request.table_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2844,7 +2883,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/watermarks/deleteLast'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2914,7 +2954,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/file/{path}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.nil? ? '' : request.path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -2979,7 +3020,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/MailMerge'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3054,6 +3096,7 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/MailMerge'[1..-1]
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3118,6 +3161,7 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_available_fonts ...' if @api_client.config.debugging
         # resource path
         local_var_path = '/words/fonts/available'[1..-1]
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3183,8 +3227,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/bookmarks/{bookmarkName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('BookmarkName') + '}', request.bookmark_name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('BookmarkName') + '}', request.bookmark_name.nil? ? '' : request.bookmark_name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3251,7 +3296,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/bookmarks'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3320,9 +3366,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/borders/{borderType}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('BorderType') + '}', request.border_type.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('BorderType') + '}', request.border_type.nil? ? '' : request.border_type.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3389,8 +3436,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/borders'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3459,8 +3507,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/comments/{commentIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('CommentIndex') + '}', request.comment_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('CommentIndex') + '}', request.comment_index.nil? ? '' : request.comment_index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3527,7 +3576,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/comments'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3594,7 +3644,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{documentName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('DocumentName') + '}', request.document_name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('DocumentName') + '}', request.document_name.nil? ? '' : request.document_name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3663,9 +3714,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3734,9 +3786,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects/{index}/imageData'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3805,9 +3858,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects/{index}/oleData'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3874,8 +3928,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -3942,7 +3997,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/mailMerge/FieldNames'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4010,6 +4066,7 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/mailMerge/FieldNames'[1..-1]
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4076,8 +4133,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/hyperlinks/{hyperlinkIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('HyperlinkIndex') + '}', request.hyperlink_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('HyperlinkIndex') + '}', request.hyperlink_index.nil? ? '' : request.hyperlink_index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4144,7 +4202,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/hyperlinks'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4211,7 +4270,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/documentProperties'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4280,8 +4340,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/documentProperties/{propertyName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('PropertyName') + '}', request.property_name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('PropertyName') + '}', request.property_name.nil? ? '' : request.property_name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4348,7 +4409,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/protection'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4415,7 +4477,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/statistics'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4487,7 +4550,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4559,9 +4623,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/fields/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4628,8 +4693,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/fields'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4696,7 +4762,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/folder/{path}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.nil? ? '' : request.path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4762,9 +4829,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/footnotes/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4831,8 +4899,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/footnotes'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4901,9 +4970,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/formfields/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -4970,8 +5040,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/formfields'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5040,8 +5111,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/headersfooters/{headerFooterIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('HeaderFooterIndex') + '}', request.header_footer_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('HeaderFooterIndex') + '}', request.header_footer_index.nil? ? '' : request.header_footer_index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5113,9 +5185,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('HeaderFooterIndex') + '}', request.header_footer_index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('HeaderFooterIndex') + '}', request.header_footer_index.nil? ? '' : request.header_footer_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.nil? ? '' : request.section_index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5185,8 +5258,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{sectionPath}/headersfooters'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.nil? ? '' : request.section_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5256,8 +5330,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/lists/{listId}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListId') + '}', request.list_id.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListId') + '}', request.list_id.nil? ? '' : request.list_id.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5324,7 +5399,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/lists'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5393,9 +5469,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/OfficeMathObjects/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5462,8 +5539,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/OfficeMathObjects'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5532,9 +5610,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5603,9 +5682,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/format'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5674,9 +5754,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/listFormat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5743,8 +5824,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5813,9 +5895,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/tabstops'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5884,9 +5967,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.nil? ? '' : request.range_start_identifier.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.nil? ? '' : request.range_end_identifier.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -5957,9 +6041,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6030,9 +6115,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs/{index}/font'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6101,8 +6187,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6171,8 +6258,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/sections/{sectionIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.nil? ? '' : request.section_index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6241,8 +6329,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/sections/{sectionIndex}/pageSetup'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.nil? ? '' : request.section_index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6309,7 +6398,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/sections'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6378,8 +6468,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/styles/{styleName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyleName') + '}', request.style_name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyleName') + '}', request.style_name.nil? ? '' : request.style_name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6448,8 +6539,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{styledNodePath}/style'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyledNodePath') + '}', request.styled_node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyledNodePath') + '}', request.styled_node_path.nil? ? '' : request.styled_node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6516,7 +6608,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/styles'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6585,9 +6678,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6658,9 +6752,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tableRowPath}/cells/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.nil? ? '' : request.table_row_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6731,9 +6826,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tableRowPath}/cells/{index}/cellformat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.nil? ? '' : request.table_row_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6802,9 +6898,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables/{index}/properties'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6875,9 +6972,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tablePath}/rows/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.nil? ? '' : request.table_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -6948,9 +7046,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tablePath}/rows/{index}/rowformat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.nil? ? '' : request.table_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7017,8 +7116,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7087,7 +7187,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/comments'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7161,8 +7262,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7236,8 +7338,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/fields'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7310,8 +7413,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/footnotes'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7383,8 +7487,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/formfields'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7459,8 +7564,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{sectionPath}/headersfooters'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.nil? ? '' : request.section_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7532,7 +7638,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/lists'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7606,9 +7713,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/tabstops'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7678,7 +7786,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/PageNumbers'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7750,8 +7859,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7826,8 +7936,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7900,7 +8011,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/styles/insert'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -7972,8 +8084,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8047,8 +8160,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tableRowPath}/cells'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.nil? ? '' : request.table_row_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8122,8 +8236,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tablePath}/rows'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.nil? ? '' : request.table_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8193,7 +8308,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/watermarks/images'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8268,7 +8384,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/watermarks/texts'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8338,6 +8455,7 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/loadWebDocument'[1..-1]
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8403,7 +8521,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/file/move/{srcPath}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.nil? ? '' : request.src_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8471,7 +8590,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/folder/move/{srcPath}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.nil? ? '' : request.src_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8538,7 +8658,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/compatibility/optimize'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8609,7 +8730,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/protection'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8677,7 +8799,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/revisions/rejectAll'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8747,9 +8870,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.nil? ? '' : request.range_start_identifier.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.nil? ? '' : request.range_end_identifier.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8821,9 +8945,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects/{index}/render'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8896,9 +9021,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/OfficeMathObjects/{index}/render'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -8971,8 +9097,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/pages/{pageIndex}/render'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('PageIndex') + '}', request.page_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('PageIndex') + '}', request.page_index.nil? ? '' : request.page_index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9045,9 +9172,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/render'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9120,9 +9248,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables/{index}/render'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9193,7 +9322,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/replaceText'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9267,9 +9397,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.nil? ? '' : request.range_start_identifier.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.nil? ? '' : request.range_end_identifier.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9334,6 +9465,7 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.reset_cache ...' if @api_client.config.debugging
         # resource path
         local_var_path = '/words/fonts/cache'[1..-1]
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9397,7 +9529,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/saveAs'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9469,9 +9602,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.nil? ? '' : request.range_start_identifier.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.nil? ? '' : request.range_end_identifier.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9540,7 +9674,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/saveAs/tiff'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9627,7 +9762,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/search'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9697,7 +9833,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/split'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9772,7 +9909,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/protection'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9844,8 +9982,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/bookmarks/{bookmarkName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('BookmarkName') + '}', request.bookmark_name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('BookmarkName') + '}', request.bookmark_name.nil? ? '' : request.bookmark_name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9919,9 +10058,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/borders/{borderType}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('BorderType') + '}', request.border_type.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('BorderType') + '}', request.border_type.nil? ? '' : request.border_type.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9995,8 +10135,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/comments/{commentIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('CommentIndex') + '}', request.comment_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('CommentIndex') + '}', request.comment_index.nil? ? '' : request.comment_index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10072,9 +10213,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10150,9 +10292,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/fields/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10222,7 +10365,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/updateFields'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10294,9 +10438,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/footnotes/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10370,9 +10515,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/formfields/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10446,8 +10592,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/lists/{listId}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListId') + '}', request.list_id.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListId') + '}', request.list_id.nil? ? '' : request.list_id.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10523,9 +10670,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/lists/{listId}/listLevels/{listLevel}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListId') + '}', request.list_id.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListLevel') + '}', request.list_level.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListId') + '}', request.list_id.nil? ? '' : request.list_id.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListLevel') + '}', request.list_level.nil? ? '' : request.list_level.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10599,9 +10747,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/format'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10675,9 +10824,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/listFormat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10753,9 +10903,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10831,9 +10982,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs/{index}/font'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10907,8 +11059,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/sections/{sectionIndex}/pageSetup'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.nil? ? '' : request.section_index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -10982,8 +11135,9 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/styles/{styleName}/update'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyleName') + '}', request.style_name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyleName') + '}', request.style_name.nil? ? '' : request.style_name.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -11059,9 +11213,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tableRowPath}/cells/{index}/cellformat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.nil? ? '' : request.table_row_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -11135,9 +11290,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables/{index}/properties'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -11213,9 +11369,10 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tablePath}/rows/{index}/rowformat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.nil? ? '' : request.table_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -11287,7 +11444,8 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/file/{path}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.nil? ? '' : request.path.to_s)
+        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
