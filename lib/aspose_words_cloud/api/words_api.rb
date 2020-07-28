@@ -24,7 +24,6 @@
 # ------------------------------------------------------------------------------------
 
 require 'uri'
-require 'json'
 
 module AsposeWordsCloud
   #
@@ -69,16 +68,40 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/revisions/acceptAll'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -140,18 +163,52 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/appendDocument'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -177,6 +234,74 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#append_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Appends documents to original document.
+    # @param request AppendDocumentOnlineRequest
+    # @return [File]
+    def append_document_online(request)
+        begin
+        data, _status_code, _headers = append_document_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = append_document_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Appends documents to original document.
+    # @param request AppendDocumentOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def append_document_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? AppendDocumentOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.append_document_online ...' if @api_client.config.debugging
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.append_document_online' if @api_client.config.client_side_validation && request.document.nil?
+        # verify the required parameter 'document_list' is set
+        raise ArgumentError, 'Missing the required parameter document_list when calling WordsApi.append_document_online' if @api_client.config.client_side_validation && request.document_list.nil?
+
+        # resource path
+        local_var_path = '/words/online/appendDocument'[1..-1]
+
+        # query parameters
+        query_params = {}
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+        form_params[downcase_first_letter('DocumentList')] = request.document_list
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#append_document_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -215,19 +340,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{styledNodePath}/style'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyledNodePath') + '}', request.styled_node_path.nil? ? '' : request.styled_node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyledNodePath') + '}', request.styled_node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -291,16 +450,40 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/buildReport'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -312,7 +495,9 @@ module AsposeWordsCloud
         # form parameters
         form_params = {}
         form_params[downcase_first_letter('Data')] = request.data
-        form_params[downcase_first_letter('ReportEngineSettings')] = request.report_engine_settings.to_body.to_json
+
+        form_params[downcase_first_letter('ReportEngineSettings')] = request.report_engine_settings
+
 
         # http body (model)
         post_body = nil
@@ -366,11 +551,15 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/buildReport'[1..-1]
-        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('DocumentFileName')] = request.document_file_name unless request.document_file_name.nil?
+        if local_var_path.include? downcase_first_letter('DocumentFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DocumentFileName') + '}', request.document_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DocumentFileName')] = request.document_file_name unless request.document_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -382,8 +571,11 @@ module AsposeWordsCloud
         # form parameters
         form_params = {}
         form_params[downcase_first_letter('Template')] = request.template
+
         form_params[downcase_first_letter('Data')] = request.data
-        form_params[downcase_first_letter('ReportEngineSettings')] = request.report_engine_settings.to_body.to_json
+
+        form_params[downcase_first_letter('ReportEngineSettings')] = request.report_engine_settings
+
 
         # http body (model)
         post_body = nil
@@ -433,11 +625,15 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/classify'[1..-1]
-        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('BestClassesCount')] = request.best_classes_count unless request.best_classes_count.nil?
+        if local_var_path.include? downcase_first_letter('BestClassesCount')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('BestClassesCount') + '}', request.best_classes_count.to_s)
+        else
+            query_params[downcase_first_letter('BestClassesCount')] = request.best_classes_count unless request.best_classes_count.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -497,17 +693,46 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{documentName}/classify'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('DocumentName') + '}', request.document_name.nil? ? '' : request.document_name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('DocumentName') + '}', request.document_name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('BestClassesCount')] = request.best_classes_count unless request.best_classes_count.nil?
-        query_params[downcase_first_letter('Taxonomy')] = request.taxonomy unless request.taxonomy.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('BestClassesCount')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('BestClassesCount') + '}', request.best_classes_count.to_s)
+        else
+            query_params[downcase_first_letter('BestClassesCount')] = request.best_classes_count unless request.best_classes_count.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Taxonomy')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Taxonomy') + '}', request.taxonomy.to_s)
+        else
+            query_params[downcase_first_letter('Taxonomy')] = request.taxonomy unless request.taxonomy.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -569,16 +794,40 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/compareDocument'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -640,15 +889,35 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/convert'[1..-1]
-        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('Format')] = request.format
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('OutPath')] = request.out_path unless request.out_path.nil?
-        query_params[downcase_first_letter('FileNameFieldValue')] = request.file_name_field_value unless request.file_name_field_value.nil?
-        query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+
+        if local_var_path.include? downcase_first_letter('OutPath')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('OutPath') + '}', request.out_path.to_s)
+        else
+            query_params[downcase_first_letter('OutPath')] = request.out_path unless request.out_path.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FileNameFieldValue')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FileNameFieldValue') + '}', request.file_name_field_value.to_s)
+        else
+            query_params[downcase_first_letter('FileNameFieldValue')] = request.file_name_field_value unless request.file_name_field_value.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -660,6 +929,7 @@ module AsposeWordsCloud
         # form parameters
         form_params = {}
         form_params[downcase_first_letter('Document')] = request.document
+
 
         # http body (model)
         post_body = nil
@@ -711,15 +981,30 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/file/copy/{srcPath}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.nil? ? '' : request.src_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('DestPath')] = request.dest_path
-        query_params[downcase_first_letter('SrcStorageName')] = request.src_storage_name unless request.src_storage_name.nil?
-        query_params[downcase_first_letter('DestStorageName')] = request.dest_storage_name unless request.dest_storage_name.nil?
-        query_params[downcase_first_letter('VersionId')] = request.version_id unless request.version_id.nil?
+
+        if local_var_path.include? downcase_first_letter('SrcStorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcStorageName') + '}', request.src_storage_name.to_s)
+        else
+            query_params[downcase_first_letter('SrcStorageName')] = request.src_storage_name unless request.src_storage_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestStorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestStorageName') + '}', request.dest_storage_name.to_s)
+        else
+            query_params[downcase_first_letter('DestStorageName')] = request.dest_storage_name unless request.dest_storage_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('VersionId')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('VersionId') + '}', request.version_id.to_s)
+        else
+            query_params[downcase_first_letter('VersionId')] = request.version_id unless request.version_id.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -780,14 +1065,24 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/folder/copy/{srcPath}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.nil? ? '' : request.src_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('DestPath')] = request.dest_path
-        query_params[downcase_first_letter('SrcStorageName')] = request.src_storage_name unless request.src_storage_name.nil?
-        query_params[downcase_first_letter('DestStorageName')] = request.dest_storage_name unless request.dest_storage_name.nil?
+
+        if local_var_path.include? downcase_first_letter('SrcStorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcStorageName') + '}', request.src_storage_name.to_s)
+        else
+            query_params[downcase_first_letter('SrcStorageName')] = request.src_storage_name unless request.src_storage_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestStorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestStorageName') + '}', request.dest_storage_name.to_s)
+        else
+            query_params[downcase_first_letter('DestStorageName')] = request.dest_storage_name unless request.dest_storage_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -848,18 +1143,52 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/styles/copy'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -920,13 +1249,27 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.create_document ...' if @api_client.config.debugging
         # resource path
         local_var_path = '/words/create'[1..-1]
-        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('FileName')] = request.file_name unless request.file_name.nil?
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        if local_var_path.include? downcase_first_letter('FileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FileName') + '}', request.file_name.to_s)
+        else
+            query_params[downcase_first_letter('FileName')] = request.file_name unless request.file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -986,12 +1329,16 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/folder/{path}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.nil? ? '' : request.path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('StorageName')] = request.storage_name unless request.storage_name.nil?
+        if local_var_path.include? downcase_first_letter('StorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('StorageName') + '}', request.storage_name.to_s)
+        else
+            query_params[downcase_first_letter('StorageName')] = request.storage_name unless request.storage_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1054,19 +1401,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/documentProperties/{propertyName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('PropertyName') + '}', request.property_name.nil? ? '' : request.property_name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('PropertyName') + '}', request.property_name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1123,23 +1504,49 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.delete_all_paragraph_tab_stops ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_all_paragraph_tab_stops' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_all_paragraph_tab_stops' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_all_paragraph_tab_stops' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/tabstops'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1165,6 +1572,102 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#delete_all_paragraph_tab_stops\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Remove all tab stops.
+    # @param request DeleteAllParagraphTabStopsWithoutNodePathRequest
+    # @return [TabStopsResponse]
+    def delete_all_paragraph_tab_stops_without_node_path(request)
+        begin
+        data, _status_code, _headers = delete_all_paragraph_tab_stops_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_all_paragraph_tab_stops_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Remove all tab stops.
+    # @param request DeleteAllParagraphTabStopsWithoutNodePathRequest
+    # @return [Array<(TabStopsResponse, Fixnum, Hash)>]
+    # TabStopsResponse data, response status code and response headers
+    private def delete_all_paragraph_tab_stops_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteAllParagraphTabStopsWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_all_paragraph_tab_stops_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_all_paragraph_tab_stops_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_all_paragraph_tab_stops_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/paragraphs/{index}/tabstops'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'TabStopsResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_all_paragraph_tab_stops_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -1196,25 +1699,61 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.delete_border ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_border' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_border' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'border_type' is set
         raise ArgumentError, 'Missing the required parameter border_type when calling WordsApi.delete_border' if @api_client.config.client_side_validation && request.border_type.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/borders/{borderType}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('BorderType') + '}', request.border_type.nil? ? '' : request.border_type.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('BorderType') + '}', request.border_type.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1271,22 +1810,58 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.delete_borders ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_borders' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_borders' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/borders'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1348,19 +1923,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/comments/{commentIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('CommentIndex') + '}', request.comment_index.nil? ? '' : request.comment_index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('CommentIndex') + '}', request.comment_index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1421,19 +2030,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/documentProperties/{propertyName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('PropertyName') + '}', request.property_name.nil? ? '' : request.property_name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('PropertyName') + '}', request.property_name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1489,25 +2132,61 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.delete_drawing_object ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_drawing_object' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_drawing_object' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_drawing_object' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1532,6 +2211,113 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#delete_drawing_object\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Removes drawing object from document.
+    # @param request DeleteDrawingObjectWithoutNodePathRequest
+    # @return [nil]
+    def delete_drawing_object_without_node_path(request)
+        begin
+        data, _status_code, _headers = delete_drawing_object_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_drawing_object_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        nil
+    end
+
+    # Removes drawing object from document.
+    # @param request DeleteDrawingObjectWithoutNodePathRequest
+    # @return [Array<(nil, Fixnum, Hash)>]
+    # nil, response status code and response headers
+    private def delete_drawing_object_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteDrawingObjectWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_drawing_object_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_drawing_object_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_drawing_object_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/drawingObjects/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names)
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_drawing_object_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -1563,25 +2349,61 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.delete_field ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_field' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_field' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_field' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/fields/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1637,22 +2459,58 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.delete_fields ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_fields' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_fields' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/fields'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1677,6 +2535,217 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#delete_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Removes fields from section paragraph.
+    # @param request DeleteFieldsWithoutNodePathRequest
+    # @return [nil]
+    def delete_fields_without_node_path(request)
+        begin
+        data, _status_code, _headers = delete_fields_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_fields_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        nil
+    end
+
+    # Removes fields from section paragraph.
+    # @param request DeleteFieldsWithoutNodePathRequest
+    # @return [Array<(nil, Fixnum, Hash)>]
+    # nil, response status code and response headers
+    private def delete_fields_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteFieldsWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_fields_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_fields_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/fields'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names)
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_fields_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Deletes field from document.
+    # @param request DeleteFieldWithoutNodePathRequest
+    # @return [nil]
+    def delete_field_without_node_path(request)
+        begin
+        data, _status_code, _headers = delete_field_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_field_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        nil
+    end
+
+    # Deletes field from document.
+    # @param request DeleteFieldWithoutNodePathRequest
+    # @return [Array<(nil, Fixnum, Hash)>]
+    # nil, response status code and response headers
+    private def delete_field_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteFieldWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_field_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_field_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_field_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/fields/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names)
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_field_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -1711,13 +2780,22 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/file/{path}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.nil? ? '' : request.path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('StorageName')] = request.storage_name unless request.storage_name.nil?
-        query_params[downcase_first_letter('VersionId')] = request.version_id unless request.version_id.nil?
+        if local_var_path.include? downcase_first_letter('StorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('StorageName') + '}', request.storage_name.to_s)
+        else
+            query_params[downcase_first_letter('StorageName')] = request.storage_name unless request.storage_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('VersionId')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('VersionId') + '}', request.version_id.to_s)
+        else
+            query_params[downcase_first_letter('VersionId')] = request.version_id unless request.version_id.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1776,13 +2854,22 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/folder/{path}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.nil? ? '' : request.path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('StorageName')] = request.storage_name unless request.storage_name.nil?
-        query_params[downcase_first_letter('Recursive')] = request.recursive unless request.recursive.nil?
+        if local_var_path.include? downcase_first_letter('StorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('StorageName') + '}', request.storage_name.to_s)
+        else
+            query_params[downcase_first_letter('StorageName')] = request.storage_name unless request.storage_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Recursive')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Recursive') + '}', request.recursive.to_s)
+        else
+            query_params[downcase_first_letter('Recursive')] = request.recursive unless request.recursive.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1838,25 +2925,61 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.delete_footnote ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_footnote' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_footnote' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_footnote' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/footnotes/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1881,6 +3004,113 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#delete_footnote\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Removes footnote from document.
+    # @param request DeleteFootnoteWithoutNodePathRequest
+    # @return [nil]
+    def delete_footnote_without_node_path(request)
+        begin
+        data, _status_code, _headers = delete_footnote_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_footnote_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        nil
+    end
+
+    # Removes footnote from document.
+    # @param request DeleteFootnoteWithoutNodePathRequest
+    # @return [Array<(nil, Fixnum, Hash)>]
+    # nil, response status code and response headers
+    private def delete_footnote_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteFootnoteWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_footnote_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_footnote_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_footnote_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/footnotes/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names)
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_footnote_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -1912,25 +3142,61 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.delete_form_field ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_form_field' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_form_field' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_form_field' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/formfields/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -1955,6 +3221,113 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#delete_form_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Removes form field from document.
+    # @param request DeleteFormFieldWithoutNodePathRequest
+    # @return [nil]
+    def delete_form_field_without_node_path(request)
+        begin
+        data, _status_code, _headers = delete_form_field_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_form_field_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        nil
+    end
+
+    # Removes form field from document.
+    # @param request DeleteFormFieldWithoutNodePathRequest
+    # @return [Array<(nil, Fixnum, Hash)>]
+    # nil, response status code and response headers
+    private def delete_form_field_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteFormFieldWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_form_field_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_form_field_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_form_field_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/formfields/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names)
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_form_field_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -1993,20 +3366,54 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{sectionPath}/headersfooters/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.nil? ? '' : request.section_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2067,20 +3474,59 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{sectionPath}/headersfooters'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.nil? ? '' : request.section_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
-        query_params[downcase_first_letter('HeadersFootersTypes')] = request.headers_footers_types unless request.headers_footers_types.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('HeadersFootersTypes')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('HeadersFootersTypes') + '}', request.headers_footers_types.to_s)
+        else
+            query_params[downcase_first_letter('HeadersFootersTypes')] = request.headers_footers_types unless request.headers_footers_types.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2139,18 +3585,52 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/macros'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2206,25 +3686,61 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.delete_office_math_object ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_office_math_object' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_office_math_object' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_office_math_object' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/OfficeMathObjects/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2249,6 +3765,113 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#delete_office_math_object\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Removes OfficeMath object from document.
+    # @param request DeleteOfficeMathObjectWithoutNodePathRequest
+    # @return [nil]
+    def delete_office_math_object_without_node_path(request)
+        begin
+        data, _status_code, _headers = delete_office_math_object_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_office_math_object_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        nil
+    end
+
+    # Removes OfficeMath object from document.
+    # @param request DeleteOfficeMathObjectWithoutNodePathRequest
+    # @return [Array<(nil, Fixnum, Hash)>]
+    # nil, response status code and response headers
+    private def delete_office_math_object_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteOfficeMathObjectWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_office_math_object_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_office_math_object_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_office_math_object_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/OfficeMathObjects/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names)
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_office_math_object_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -2280,25 +3903,61 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.delete_paragraph ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_paragraph' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_paragraph' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_paragraph' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2354,25 +4013,61 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.delete_paragraph_list_format ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_paragraph_list_format' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_paragraph_list_format' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_paragraph_list_format' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/listFormat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2398,6 +4093,214 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#delete_paragraph_list_format\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Delete paragraph list format, returns updated list format properties.
+    # @param request DeleteParagraphListFormatWithoutNodePathRequest
+    # @return [ParagraphListFormatResponse]
+    def delete_paragraph_list_format_without_node_path(request)
+        begin
+        data, _status_code, _headers = delete_paragraph_list_format_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_paragraph_list_format_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Delete paragraph list format, returns updated list format properties.
+    # @param request DeleteParagraphListFormatWithoutNodePathRequest
+    # @return [Array<(ParagraphListFormatResponse, Fixnum, Hash)>]
+    # ParagraphListFormatResponse data, response status code and response headers
+    private def delete_paragraph_list_format_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteParagraphListFormatWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_paragraph_list_format_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_paragraph_list_format_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_paragraph_list_format_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/paragraphs/{index}/listFormat'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'ParagraphListFormatResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_paragraph_list_format_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Removes paragraph from section.
+    # @param request DeleteParagraphOnlineRequest
+    # @return [File]
+    def delete_paragraph_online(request)
+        begin
+        data, _status_code, _headers = delete_paragraph_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_paragraph_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Removes paragraph from section.
+    # @param request DeleteParagraphOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def delete_paragraph_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteParagraphOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_paragraph_online ...' if @api_client.config.debugging
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_paragraph_online' if @api_client.config.client_side_validation && request.node_path.nil?
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.delete_paragraph_online' if @api_client.config.client_side_validation && request.document.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_paragraph_online' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/online/{nodePath}/paragraphs/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_paragraph_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -2431,24 +4334,51 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_paragraph_tab_stop' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'position' is set
         raise ArgumentError, 'Missing the required parameter position when calling WordsApi.delete_paragraph_tab_stop' if @api_client.config.client_side_validation && request.position.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_paragraph_tab_stop' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_paragraph_tab_stop' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/tabstop'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('Position')] = request.position
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2474,6 +4404,310 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#delete_paragraph_tab_stop\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Remove the i-th tab stop.
+    # @param request DeleteParagraphTabStopWithoutNodePathRequest
+    # @return [TabStopsResponse]
+    def delete_paragraph_tab_stop_without_node_path(request)
+        begin
+        data, _status_code, _headers = delete_paragraph_tab_stop_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_paragraph_tab_stop_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Remove the i-th tab stop.
+    # @param request DeleteParagraphTabStopWithoutNodePathRequest
+    # @return [Array<(TabStopsResponse, Fixnum, Hash)>]
+    # TabStopsResponse data, response status code and response headers
+    private def delete_paragraph_tab_stop_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteParagraphTabStopWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_paragraph_tab_stop_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_paragraph_tab_stop_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'position' is set
+        raise ArgumentError, 'Missing the required parameter position when calling WordsApi.delete_paragraph_tab_stop_without_node_path' if @api_client.config.client_side_validation && request.position.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_paragraph_tab_stop_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/paragraphs/{index}/tabstop'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        query_params[downcase_first_letter('Position')] = request.position
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'TabStopsResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_paragraph_tab_stop_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Removes paragraph from section.
+    # @param request DeleteParagraphWithoutNodePathRequest
+    # @return [nil]
+    def delete_paragraph_without_node_path(request)
+        begin
+        data, _status_code, _headers = delete_paragraph_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_paragraph_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        nil
+    end
+
+    # Removes paragraph from section.
+    # @param request DeleteParagraphWithoutNodePathRequest
+    # @return [Array<(nil, Fixnum, Hash)>]
+    # nil, response status code and response headers
+    private def delete_paragraph_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteParagraphWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_paragraph_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_paragraph_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_paragraph_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/paragraphs/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names)
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_paragraph_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Removes paragraph from section.
+    # @param request DeleteParagraphWithoutNodePathOnlineRequest
+    # @return [File]
+    def delete_paragraph_without_node_path_online(request)
+        begin
+        data, _status_code, _headers = delete_paragraph_without_node_path_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_paragraph_without_node_path_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Removes paragraph from section.
+    # @param request DeleteParagraphWithoutNodePathOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def delete_paragraph_without_node_path_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteParagraphWithoutNodePathOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_paragraph_without_node_path_online ...' if @api_client.config.debugging
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_paragraph_without_node_path_online' if @api_client.config.client_side_validation && request.index.nil?
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.delete_paragraph_without_node_path_online' if @api_client.config.client_side_validation && request.document.nil?
+
+        # resource path
+        local_var_path = '/words/online/paragraphs/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_paragraph_without_node_path_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -2512,20 +4746,54 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2586,19 +4854,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/sections/{sectionIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.nil? ? '' : request.section_index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2654,25 +4956,61 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.delete_table ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_table' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.delete_table' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_table' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2735,20 +5073,54 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tableRowPath}/cells/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.nil? ? '' : request.table_row_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2811,20 +5183,54 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tablePath}/rows/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.nil? ? '' : request.table_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2849,6 +5255,113 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#delete_table_row\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Deletes a table.
+    # @param request DeleteTableWithoutNodePathRequest
+    # @return [nil]
+    def delete_table_without_node_path(request)
+        begin
+        data, _status_code, _headers = delete_table_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = delete_table_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        nil
+    end
+
+    # Deletes a table.
+    # @param request DeleteTableWithoutNodePathRequest
+    # @return [Array<(nil, Fixnum, Hash)>]
+    # nil, response status code and response headers
+    private def delete_table_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? DeleteTableWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.delete_table_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.delete_table_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.delete_table_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/tables/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names)
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#delete_table_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -2883,18 +5396,52 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/watermarks/deleteLast'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -2954,13 +5501,22 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/file/{path}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.nil? ? '' : request.path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('StorageName')] = request.storage_name unless request.storage_name.nil?
-        query_params[downcase_first_letter('VersionId')] = request.version_id unless request.version_id.nil?
+        if local_var_path.include? downcase_first_letter('StorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('StorageName') + '}', request.storage_name.to_s)
+        else
+            query_params[downcase_first_letter('StorageName')] = request.storage_name unless request.storage_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('VersionId')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('VersionId') + '}', request.version_id.to_s)
+        else
+            query_params[downcase_first_letter('VersionId')] = request.version_id unless request.version_id.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3020,20 +5576,64 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/MailMerge'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('WithRegions')] = request.with_regions unless request.with_regions.nil?
-        query_params[downcase_first_letter('MailMergeDataFile')] = request.mail_merge_data_file unless request.mail_merge_data_file.nil?
-        query_params[downcase_first_letter('Cleanup')] = request.cleanup unless request.cleanup.nil?
-        query_params[downcase_first_letter('UseWholeParagraphAsRegion')] = request.use_whole_paragraph_as_region unless request.use_whole_paragraph_as_region.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('WithRegions')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('WithRegions') + '}', request.with_regions.to_s)
+        else
+            query_params[downcase_first_letter('WithRegions')] = request.with_regions unless request.with_regions.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('MailMergeDataFile')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('MailMergeDataFile') + '}', request.mail_merge_data_file.to_s)
+        else
+            query_params[downcase_first_letter('MailMergeDataFile')] = request.mail_merge_data_file unless request.mail_merge_data_file.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Cleanup')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Cleanup') + '}', request.cleanup.to_s)
+        else
+            query_params[downcase_first_letter('Cleanup')] = request.cleanup unless request.cleanup.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('UseWholeParagraphAsRegion')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('UseWholeParagraphAsRegion') + '}', request.use_whole_paragraph_as_region.to_s)
+        else
+            query_params[downcase_first_letter('UseWholeParagraphAsRegion')] = request.use_whole_paragraph_as_region unless request.use_whole_paragraph_as_region.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3044,7 +5644,8 @@ module AsposeWordsCloud
 
         # form parameters
         form_params = {}
-        form_params[downcase_first_letter('Data')] = request.data
+        form_params[downcase_first_letter('Data')] = request.data unless request.data.nil?
+
 
         # http body (model)
         post_body = nil
@@ -3096,13 +5697,27 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/MailMerge'[1..-1]
-        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('WithRegions')] = request.with_regions unless request.with_regions.nil?
-        query_params[downcase_first_letter('Cleanup')] = request.cleanup unless request.cleanup.nil?
-        query_params[downcase_first_letter('DocumentFileName')] = request.document_file_name unless request.document_file_name.nil?
+        if local_var_path.include? downcase_first_letter('WithRegions')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('WithRegions') + '}', request.with_regions.to_s)
+        else
+            query_params[downcase_first_letter('WithRegions')] = request.with_regions unless request.with_regions.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Cleanup')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Cleanup') + '}', request.cleanup.to_s)
+        else
+            query_params[downcase_first_letter('Cleanup')] = request.cleanup unless request.cleanup.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DocumentFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DocumentFileName') + '}', request.document_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DocumentFileName')] = request.document_file_name unless request.document_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3114,7 +5729,9 @@ module AsposeWordsCloud
         # form parameters
         form_params = {}
         form_params[downcase_first_letter('Template')] = request.template
+
         form_params[downcase_first_letter('Data')] = request.data
+
 
         # http body (model)
         post_body = nil
@@ -3161,11 +5778,15 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_available_fonts ...' if @api_client.config.debugging
         # resource path
         local_var_path = '/words/fonts/available'[1..-1]
-        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3227,16 +5848,35 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/bookmarks/{bookmarkName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('BookmarkName') + '}', request.bookmark_name.nil? ? '' : request.bookmark_name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('BookmarkName') + '}', request.bookmark_name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3296,15 +5936,34 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/bookmarks'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3361,22 +6020,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_border ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_border' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_border' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'border_type' is set
         raise ArgumentError, 'Missing the required parameter border_type when calling WordsApi.get_border' if @api_client.config.client_side_validation && request.border_type.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/borders/{borderType}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('BorderType') + '}', request.border_type.nil? ? '' : request.border_type.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('BorderType') + '}', request.border_type.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3433,19 +6113,40 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_borders ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_borders' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_borders' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/borders'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3507,16 +6208,35 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/comments/{commentIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('CommentIndex') + '}', request.comment_index.nil? ? '' : request.comment_index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('CommentIndex') + '}', request.comment_index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3576,15 +6296,34 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/comments'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3644,15 +6383,34 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{documentName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('DocumentName') + '}', request.document_name.nil? ? '' : request.document_name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('DocumentName') + '}', request.document_name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3709,22 +6467,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_document_drawing_object_by_index ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_document_drawing_object_by_index' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_document_drawing_object_by_index' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_document_drawing_object_by_index' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3750,6 +6529,96 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_document_drawing_object_by_index\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Reads document drawing object common info by its index or convert to format specified.
+    # @param request GetDocumentDrawingObjectByIndexWithoutNodePathRequest
+    # @return [DrawingObjectResponse]
+    def get_document_drawing_object_by_index_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_document_drawing_object_by_index_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_document_drawing_object_by_index_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Reads document drawing object common info by its index or convert to format specified.
+    # @param request GetDocumentDrawingObjectByIndexWithoutNodePathRequest
+    # @return [Array<(DrawingObjectResponse, Fixnum, Hash)>]
+    # DrawingObjectResponse data, response status code and response headers
+    private def get_document_drawing_object_by_index_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetDocumentDrawingObjectByIndexWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_document_drawing_object_by_index_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_document_drawing_object_by_index_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_document_drawing_object_by_index_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/drawingObjects/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'DrawingObjectResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_document_drawing_object_by_index_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -3781,22 +6650,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_document_drawing_object_image_data ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_document_drawing_object_image_data' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_document_drawing_object_image_data' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_document_drawing_object_image_data' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects/{index}/imageData'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3822,6 +6712,96 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_document_drawing_object_image_data\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Reads drawing object image data.
+    # @param request GetDocumentDrawingObjectImageDataWithoutNodePathRequest
+    # @return [File]
+    def get_document_drawing_object_image_data_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_document_drawing_object_image_data_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_document_drawing_object_image_data_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Reads drawing object image data.
+    # @param request GetDocumentDrawingObjectImageDataWithoutNodePathRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_document_drawing_object_image_data_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetDocumentDrawingObjectImageDataWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_document_drawing_object_image_data_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_document_drawing_object_image_data_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_document_drawing_object_image_data_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/drawingObjects/{index}/imageData'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_document_drawing_object_image_data_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -3853,22 +6833,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_document_drawing_object_ole_data ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_document_drawing_object_ole_data' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_document_drawing_object_ole_data' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_document_drawing_object_ole_data' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects/{index}/oleData'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3894,6 +6895,96 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_document_drawing_object_ole_data\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Gets drawing object OLE data.
+    # @param request GetDocumentDrawingObjectOleDataWithoutNodePathRequest
+    # @return [File]
+    def get_document_drawing_object_ole_data_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_document_drawing_object_ole_data_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_document_drawing_object_ole_data_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Gets drawing object OLE data.
+    # @param request GetDocumentDrawingObjectOleDataWithoutNodePathRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_document_drawing_object_ole_data_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetDocumentDrawingObjectOleDataWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_document_drawing_object_ole_data_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_document_drawing_object_ole_data_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_document_drawing_object_ole_data_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/drawingObjects/{index}/oleData'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_document_drawing_object_ole_data_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -3925,19 +7016,40 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_document_drawing_objects ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_document_drawing_objects' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_document_drawing_objects' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -3963,6 +7075,93 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_document_drawing_objects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Reads document drawing objects common info.
+    # @param request GetDocumentDrawingObjectsWithoutNodePathRequest
+    # @return [DrawingObjectsResponse]
+    def get_document_drawing_objects_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_document_drawing_objects_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_document_drawing_objects_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Reads document drawing objects common info.
+    # @param request GetDocumentDrawingObjectsWithoutNodePathRequest
+    # @return [Array<(DrawingObjectsResponse, Fixnum, Hash)>]
+    # DrawingObjectsResponse data, response status code and response headers
+    private def get_document_drawing_objects_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetDocumentDrawingObjectsWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_document_drawing_objects_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_document_drawing_objects_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/drawingObjects'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'DrawingObjectsResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_document_drawing_objects_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -3997,16 +7196,40 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/mailMerge/FieldNames'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('UseNonMergeFields')] = request.use_non_merge_fields unless request.use_non_merge_fields.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('UseNonMergeFields')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('UseNonMergeFields') + '}', request.use_non_merge_fields.to_s)
+        else
+            query_params[downcase_first_letter('UseNonMergeFields')] = request.use_non_merge_fields unless request.use_non_merge_fields.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4038,7 +7261,7 @@ module AsposeWordsCloud
 
     # Reads document field names.
     # @param request GetDocumentFieldNamesOnlineRequest
-    # @return [FieldNamesResponse]
+    # @return [File]
     def get_document_field_names_online(request)
         begin
         data, _status_code, _headers = get_document_field_names_online_with_http_info(request)
@@ -4055,22 +7278,26 @@ module AsposeWordsCloud
 
     # Reads document field names.
     # @param request GetDocumentFieldNamesOnlineRequest
-    # @return [Array<(FieldNamesResponse, Fixnum, Hash)>]
-    # FieldNamesResponse data, response status code and response headers
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
     private def get_document_field_names_online_with_http_info(request)
         raise ArgumentError, 'Incorrect request type' unless request.is_a? GetDocumentFieldNamesOnlineRequest
 
         @api_client.config.logger.debug 'Calling API: WordsApi.get_document_field_names_online ...' if @api_client.config.debugging
-        # verify the required parameter 'template' is set
-        raise ArgumentError, 'Missing the required parameter template when calling WordsApi.get_document_field_names_online' if @api_client.config.client_side_validation && request.template.nil?
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.get_document_field_names_online' if @api_client.config.client_side_validation && request.document.nil?
 
         # resource path
-        local_var_path = '/words/mailMerge/FieldNames'[1..-1]
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = '/words/online/mailMerge/FieldNames'[1..-1]
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('UseNonMergeFields')] = request.use_non_merge_fields unless request.use_non_merge_fields.nil?
+        if local_var_path.include? downcase_first_letter('UseNonMergeFields')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('UseNonMergeFields') + '}', request.use_non_merge_fields.to_s)
+        else
+            query_params[downcase_first_letter('UseNonMergeFields')] = request.use_non_merge_fields unless request.use_non_merge_fields.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4081,19 +7308,20 @@ module AsposeWordsCloud
 
         # form parameters
         form_params = {}
-        form_params[downcase_first_letter('Template')] = request.template
+        form_params[downcase_first_letter('Document')] = request.document
+
 
         # http body (model)
         post_body = nil
         auth_names = ['JWT']
 
-        data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
                                                         header_params: header_params,
                                                         query_params: query_params,
                                                         form_params: form_params,
                                                         body: post_body,
                                                         auth_names: auth_names,
-                                                        return_type: 'FieldNamesResponse')
+                                                        return_type: 'File')
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_document_field_names_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
@@ -4133,16 +7361,35 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/hyperlinks/{hyperlinkIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('HyperlinkIndex') + '}', request.hyperlink_index.nil? ? '' : request.hyperlink_index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('HyperlinkIndex') + '}', request.hyperlink_index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4202,15 +7449,34 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/hyperlinks'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4270,15 +7536,34 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/documentProperties'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4340,16 +7625,35 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/documentProperties/{propertyName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('PropertyName') + '}', request.property_name.nil? ? '' : request.property_name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('PropertyName') + '}', request.property_name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4409,15 +7713,34 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/protection'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4477,18 +7800,52 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/statistics'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('IncludeComments')] = request.include_comments unless request.include_comments.nil?
-        query_params[downcase_first_letter('IncludeFootnotes')] = request.include_footnotes unless request.include_footnotes.nil?
-        query_params[downcase_first_letter('IncludeTextInShapes')] = request.include_text_in_shapes unless request.include_text_in_shapes.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('IncludeComments')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('IncludeComments') + '}', request.include_comments.to_s)
+        else
+            query_params[downcase_first_letter('IncludeComments')] = request.include_comments unless request.include_comments.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('IncludeFootnotes')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('IncludeFootnotes') + '}', request.include_footnotes.to_s)
+        else
+            query_params[downcase_first_letter('IncludeFootnotes')] = request.include_footnotes unless request.include_footnotes.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('IncludeTextInShapes')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('IncludeTextInShapes') + '}', request.include_text_in_shapes.to_s)
+        else
+            query_params[downcase_first_letter('IncludeTextInShapes')] = request.include_text_in_shapes unless request.include_text_in_shapes.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4514,6 +7871,88 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_document_statistics\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Reads document statistics.
+    # @param request GetDocumentStatisticsOnlineRequest
+    # @return [File]
+    def get_document_statistics_online(request)
+        begin
+        data, _status_code, _headers = get_document_statistics_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_document_statistics_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Reads document statistics.
+    # @param request GetDocumentStatisticsOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_document_statistics_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetDocumentStatisticsOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_document_statistics_online ...' if @api_client.config.debugging
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.get_document_statistics_online' if @api_client.config.client_side_validation && request.document.nil?
+
+        # resource path
+        local_var_path = '/words/online/statistics'[1..-1]
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('IncludeComments')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('IncludeComments') + '}', request.include_comments.to_s)
+        else
+            query_params[downcase_first_letter('IncludeComments')] = request.include_comments unless request.include_comments.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('IncludeFootnotes')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('IncludeFootnotes') + '}', request.include_footnotes.to_s)
+        else
+            query_params[downcase_first_letter('IncludeFootnotes')] = request.include_footnotes unless request.include_footnotes.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('IncludeTextInShapes')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('IncludeTextInShapes') + '}', request.include_text_in_shapes.to_s)
+        else
+            query_params[downcase_first_letter('IncludeTextInShapes')] = request.include_text_in_shapes unless request.include_text_in_shapes.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_document_statistics_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -4550,18 +7989,48 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('Format')] = request.format
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('OutPath')] = request.out_path unless request.out_path.nil?
-        query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('OutPath')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('OutPath') + '}', request.out_path.to_s)
+        else
+            query_params[downcase_first_letter('OutPath')] = request.out_path unless request.out_path.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4618,22 +8087,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_field ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_field' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_field' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_field' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/fields/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4690,19 +8180,40 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_fields ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_fields' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_fields' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/fields'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4728,6 +8239,183 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Get fields from document.
+    # @param request GetFieldsWithoutNodePathRequest
+    # @return [FieldsResponse]
+    def get_fields_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_fields_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_fields_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Get fields from document.
+    # @param request GetFieldsWithoutNodePathRequest
+    # @return [Array<(FieldsResponse, Fixnum, Hash)>]
+    # FieldsResponse data, response status code and response headers
+    private def get_fields_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetFieldsWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_fields_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_fields_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/fields'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'FieldsResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_fields_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Gets field from document.
+    # @param request GetFieldWithoutNodePathRequest
+    # @return [FieldResponse]
+    def get_field_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_field_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_field_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Gets field from document.
+    # @param request GetFieldWithoutNodePathRequest
+    # @return [Array<(FieldResponse, Fixnum, Hash)>]
+    # FieldResponse data, response status code and response headers
+    private def get_field_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetFieldWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_field_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_field_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_field_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/fields/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'FieldResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_field_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -4762,12 +8450,16 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/folder/{path}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.nil? ? '' : request.path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('StorageName')] = request.storage_name unless request.storage_name.nil?
+        if local_var_path.include? downcase_first_letter('StorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('StorageName') + '}', request.storage_name.to_s)
+        else
+            query_params[downcase_first_letter('StorageName')] = request.storage_name unless request.storage_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4824,22 +8516,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_footnote ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_footnote' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_footnote' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_footnote' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/footnotes/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4896,19 +8609,40 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_footnotes ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_footnotes' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_footnotes' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/footnotes'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -4934,6 +8668,183 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_footnotes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Gets footnotes from document.
+    # @param request GetFootnotesWithoutNodePathRequest
+    # @return [FootnotesResponse]
+    def get_footnotes_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_footnotes_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_footnotes_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Gets footnotes from document.
+    # @param request GetFootnotesWithoutNodePathRequest
+    # @return [Array<(FootnotesResponse, Fixnum, Hash)>]
+    # FootnotesResponse data, response status code and response headers
+    private def get_footnotes_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetFootnotesWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_footnotes_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_footnotes_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/footnotes'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'FootnotesResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_footnotes_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Reads footnote by index.
+    # @param request GetFootnoteWithoutNodePathRequest
+    # @return [FootnoteResponse]
+    def get_footnote_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_footnote_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_footnote_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Reads footnote by index.
+    # @param request GetFootnoteWithoutNodePathRequest
+    # @return [Array<(FootnoteResponse, Fixnum, Hash)>]
+    # FootnoteResponse data, response status code and response headers
+    private def get_footnote_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetFootnoteWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_footnote_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_footnote_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_footnote_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/footnotes/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'FootnoteResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_footnote_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -4965,22 +8876,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_form_field ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_form_field' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_form_field' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_form_field' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/formfields/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5037,19 +8969,40 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_form_fields ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_form_fields' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_form_fields' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/formfields'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5075,6 +9028,183 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_form_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Gets form fields from document.
+    # @param request GetFormFieldsWithoutNodePathRequest
+    # @return [FormFieldsResponse]
+    def get_form_fields_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_form_fields_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_form_fields_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Gets form fields from document.
+    # @param request GetFormFieldsWithoutNodePathRequest
+    # @return [Array<(FormFieldsResponse, Fixnum, Hash)>]
+    # FormFieldsResponse data, response status code and response headers
+    private def get_form_fields_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetFormFieldsWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_form_fields_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_form_fields_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/formfields'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'FormFieldsResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_form_fields_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Returns representation of an one of the form field.
+    # @param request GetFormFieldWithoutNodePathRequest
+    # @return [FormFieldResponse]
+    def get_form_field_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_form_field_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_form_field_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Returns representation of an one of the form field.
+    # @param request GetFormFieldWithoutNodePathRequest
+    # @return [Array<(FormFieldResponse, Fixnum, Hash)>]
+    # FormFieldResponse data, response status code and response headers
+    private def get_form_field_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetFormFieldWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_form_field_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_form_field_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_form_field_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/formfields/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'FormFieldResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_form_field_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -5111,17 +9241,41 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/headersfooters/{headerFooterIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('HeaderFooterIndex') + '}', request.header_footer_index.nil? ? '' : request.header_footer_index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('HeaderFooterIndex') + '}', request.header_footer_index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('FilterByType')] = request.filter_by_type unless request.filter_by_type.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FilterByType')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FilterByType') + '}', request.filter_by_type.to_s)
+        else
+            query_params[downcase_first_letter('FilterByType')] = request.filter_by_type unless request.filter_by_type.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5185,18 +9339,42 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('HeaderFooterIndex') + '}', request.header_footer_index.nil? ? '' : request.header_footer_index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.nil? ? '' : request.section_index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('HeaderFooterIndex') + '}', request.header_footer_index.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('FilterByType')] = request.filter_by_type unless request.filter_by_type.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FilterByType')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FilterByType') + '}', request.filter_by_type.to_s)
+        else
+            query_params[downcase_first_letter('FilterByType')] = request.filter_by_type unless request.filter_by_type.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5258,17 +9436,41 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{sectionPath}/headersfooters'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.nil? ? '' : request.section_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('FilterByType')] = request.filter_by_type unless request.filter_by_type.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FilterByType')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FilterByType') + '}', request.filter_by_type.to_s)
+        else
+            query_params[downcase_first_letter('FilterByType')] = request.filter_by_type unless request.filter_by_type.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5330,16 +9532,35 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/lists/{listId}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListId') + '}', request.list_id.nil? ? '' : request.list_id.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListId') + '}', request.list_id.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5399,15 +9620,34 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/lists'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5464,22 +9704,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_office_math_object ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_office_math_object' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_office_math_object' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_office_math_object' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/OfficeMathObjects/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5536,19 +9797,40 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_office_math_objects ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_office_math_objects' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_office_math_objects' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/OfficeMathObjects'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5578,16 +9860,16 @@ module AsposeWordsCloud
         [data, status_code, headers]
     end
 
-    # This resource represents one of the paragraphs contained in the document.
-    # @param request GetParagraphRequest
-    # @return [ParagraphResponse]
-    def get_paragraph(request)
+    # Gets OfficeMath objects from document.
+    # @param request GetOfficeMathObjectsWithoutNodePathRequest
+    # @return [OfficeMathObjectsResponse]
+    def get_office_math_objects_without_node_path(request)
         begin
-        data, _status_code, _headers = get_paragraph_with_http_info(request)
+        data, _status_code, _headers = get_office_math_objects_without_node_path_with_http_info(request)
         rescue ApiError => e
             if e.code == 401
             request_token
-            data, _status_code, _headers = get_paragraph_with_http_info(request)
+            data, _status_code, _headers = get_office_math_objects_without_node_path_with_http_info(request)
             else
             raise
             end
@@ -5595,32 +9877,47 @@ module AsposeWordsCloud
         data
     end
 
-    # This resource represents one of the paragraphs contained in the document.
-    # @param request GetParagraphRequest
-    # @return [Array<(ParagraphResponse, Fixnum, Hash)>]
-    # ParagraphResponse data, response status code and response headers
-    private def get_paragraph_with_http_info(request)
-        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphRequest
+    # Gets OfficeMath objects from document.
+    # @param request GetOfficeMathObjectsWithoutNodePathRequest
+    # @return [Array<(OfficeMathObjectsResponse, Fixnum, Hash)>]
+    # OfficeMathObjectsResponse data, response status code and response headers
+    private def get_office_math_objects_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetOfficeMathObjectsWithoutNodePathRequest
 
-        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraph ...' if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_office_math_objects_without_node_path ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
-        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_paragraph' if @api_client.config.client_side_validation && request.name.nil?
-        # verify the required parameter 'index' is set
-        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_paragraph' if @api_client.config.client_side_validation && request.index.nil?
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_office_math_objects_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
 
         # resource path
-        local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = '/words/{name}/OfficeMathObjects'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5642,7 +9939,190 @@ module AsposeWordsCloud
                                                         form_params: form_params,
                                                         body: post_body,
                                                         auth_names: auth_names,
-                                                        return_type: 'ParagraphResponse')
+                                                        return_type: 'OfficeMathObjectsResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_office_math_objects_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Reads OfficeMath object by index.
+    # @param request GetOfficeMathObjectWithoutNodePathRequest
+    # @return [OfficeMathObjectResponse]
+    def get_office_math_object_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_office_math_object_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_office_math_object_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Reads OfficeMath object by index.
+    # @param request GetOfficeMathObjectWithoutNodePathRequest
+    # @return [Array<(OfficeMathObjectResponse, Fixnum, Hash)>]
+    # OfficeMathObjectResponse data, response status code and response headers
+    private def get_office_math_object_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetOfficeMathObjectWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_office_math_object_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_office_math_object_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_office_math_object_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/OfficeMathObjects/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'OfficeMathObjectResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_office_math_object_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # This resource represents one of the paragraphs contained in the document.
+    # @param request GetParagraphRequest
+    # @return [File]
+    def get_paragraph(request)
+        begin
+        data, _status_code, _headers = get_paragraph_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_paragraph_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # This resource represents one of the paragraphs contained in the document.
+    # @param request GetParagraphRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_paragraph_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraph ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_paragraph' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_paragraph' if @api_client.config.client_side_validation && request.node_path.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_paragraph' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_paragraph\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
@@ -5677,22 +10157,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraph_format ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_paragraph_format' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_paragraph_format' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_paragraph_format' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/format'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5718,6 +10219,96 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_paragraph_format\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Represents all the formatting for a paragraph.
+    # @param request GetParagraphFormatWithoutNodePathRequest
+    # @return [ParagraphFormatResponse]
+    def get_paragraph_format_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_paragraph_format_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_paragraph_format_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Represents all the formatting for a paragraph.
+    # @param request GetParagraphFormatWithoutNodePathRequest
+    # @return [Array<(ParagraphFormatResponse, Fixnum, Hash)>]
+    # ParagraphFormatResponse data, response status code and response headers
+    private def get_paragraph_format_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphFormatWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraph_format_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_paragraph_format_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_paragraph_format_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/paragraphs/{index}/format'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'ParagraphFormatResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_paragraph_format_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -5749,22 +10340,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraph_list_format ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_paragraph_list_format' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_paragraph_list_format' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_paragraph_list_format' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/listFormat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5794,16 +10406,16 @@ module AsposeWordsCloud
         [data, status_code, headers]
     end
 
-    # Returns a list of paragraphs that are contained in the document.
-    # @param request GetParagraphsRequest
-    # @return [ParagraphLinkCollectionResponse]
-    def get_paragraphs(request)
+    # Represents list format for a paragraph.
+    # @param request GetParagraphListFormatWithoutNodePathRequest
+    # @return [ParagraphListFormatResponse]
+    def get_paragraph_list_format_without_node_path(request)
         begin
-        data, _status_code, _headers = get_paragraphs_with_http_info(request)
+        data, _status_code, _headers = get_paragraph_list_format_without_node_path_with_http_info(request)
         rescue ApiError => e
             if e.code == 401
             request_token
-            data, _status_code, _headers = get_paragraphs_with_http_info(request)
+            data, _status_code, _headers = get_paragraph_list_format_without_node_path_with_http_info(request)
             else
             raise
             end
@@ -5811,29 +10423,50 @@ module AsposeWordsCloud
         data
     end
 
-    # Returns a list of paragraphs that are contained in the document.
-    # @param request GetParagraphsRequest
-    # @return [Array<(ParagraphLinkCollectionResponse, Fixnum, Hash)>]
-    # ParagraphLinkCollectionResponse data, response status code and response headers
-    private def get_paragraphs_with_http_info(request)
-        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphsRequest
+    # Represents list format for a paragraph.
+    # @param request GetParagraphListFormatWithoutNodePathRequest
+    # @return [Array<(ParagraphListFormatResponse, Fixnum, Hash)>]
+    # ParagraphListFormatResponse data, response status code and response headers
+    private def get_paragraph_list_format_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphListFormatWithoutNodePathRequest
 
-        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraphs ...' if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraph_list_format_without_node_path ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
-        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_paragraphs' if @api_client.config.client_side_validation && request.name.nil?
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_paragraph_list_format_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_paragraph_list_format_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
-        local_var_path = '/words/{name}/{nodePath}/paragraphs'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = '/words/{name}/paragraphs/{index}/listFormat'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5855,10 +10488,424 @@ module AsposeWordsCloud
                                                         form_params: form_params,
                                                         body: post_body,
                                                         auth_names: auth_names,
-                                                        return_type: 'ParagraphLinkCollectionResponse')
+                                                        return_type: 'ParagraphListFormatResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_paragraph_list_format_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # This resource represents one of the paragraphs contained in the document.
+    # @param request GetParagraphOnlineRequest
+    # @return [File]
+    def get_paragraph_online(request)
+        begin
+        data, _status_code, _headers = get_paragraph_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_paragraph_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # This resource represents one of the paragraphs contained in the document.
+    # @param request GetParagraphOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_paragraph_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraph_online ...' if @api_client.config.debugging
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_paragraph_online' if @api_client.config.client_side_validation && request.node_path.nil?
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.get_paragraph_online' if @api_client.config.client_side_validation && request.document.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_paragraph_online' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/online/{nodePath}/paragraphs/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_paragraph_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Returns a list of paragraphs that are contained in the document.
+    # @param request GetParagraphsRequest
+    # @return [File]
+    def get_paragraphs(request)
+        begin
+        data, _status_code, _headers = get_paragraphs_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_paragraphs_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Returns a list of paragraphs that are contained in the document.
+    # @param request GetParagraphsRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_paragraphs_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphsRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraphs ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_paragraphs' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_paragraphs' if @api_client.config.client_side_validation && request.node_path.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/{nodePath}/paragraphs'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_paragraphs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Returns a list of paragraphs that are contained in the document.
+    # @param request GetParagraphsOnlineRequest
+    # @return [File]
+    def get_paragraphs_online(request)
+        begin
+        data, _status_code, _headers = get_paragraphs_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_paragraphs_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Returns a list of paragraphs that are contained in the document.
+    # @param request GetParagraphsOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_paragraphs_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphsOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraphs_online ...' if @api_client.config.debugging
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_paragraphs_online' if @api_client.config.client_side_validation && request.node_path.nil?
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.get_paragraphs_online' if @api_client.config.client_side_validation && request.document.nil?
+
+        # resource path
+        local_var_path = '/words/online/{nodePath}/paragraphs'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_paragraphs_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Returns a list of paragraphs that are contained in the document.
+    # @param request GetParagraphsWithoutNodePathRequest
+    # @return [File]
+    def get_paragraphs_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_paragraphs_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_paragraphs_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Returns a list of paragraphs that are contained in the document.
+    # @param request GetParagraphsWithoutNodePathRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_paragraphs_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphsWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraphs_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_paragraphs_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/paragraphs'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_paragraphs_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Returns a list of paragraphs that are contained in the document.
+    # @param request GetParagraphsWithoutNodePathOnlineRequest
+    # @return [File]
+    def get_paragraphs_without_node_path_online(request)
+        begin
+        data, _status_code, _headers = get_paragraphs_without_node_path_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_paragraphs_without_node_path_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Returns a list of paragraphs that are contained in the document.
+    # @param request GetParagraphsWithoutNodePathOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_paragraphs_without_node_path_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphsWithoutNodePathOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraphs_without_node_path_online ...' if @api_client.config.debugging
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.get_paragraphs_without_node_path_online' if @api_client.config.client_side_validation && request.document.nil?
+
+        # resource path
+        local_var_path = '/words/online/paragraphs'[1..-1]
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_paragraphs_without_node_path_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -5890,22 +10937,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraph_tab_stops ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_paragraph_tab_stops' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_paragraph_tab_stops' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_paragraph_tab_stops' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/tabstops'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -5931,6 +10999,265 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_paragraph_tab_stops\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Get all tab stops for the paragraph.
+    # @param request GetParagraphTabStopsWithoutNodePathRequest
+    # @return [TabStopsResponse]
+    def get_paragraph_tab_stops_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_paragraph_tab_stops_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_paragraph_tab_stops_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Get all tab stops for the paragraph.
+    # @param request GetParagraphTabStopsWithoutNodePathRequest
+    # @return [Array<(TabStopsResponse, Fixnum, Hash)>]
+    # TabStopsResponse data, response status code and response headers
+    private def get_paragraph_tab_stops_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphTabStopsWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraph_tab_stops_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_paragraph_tab_stops_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_paragraph_tab_stops_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/paragraphs/{index}/tabstops'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'TabStopsResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_paragraph_tab_stops_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # This resource represents one of the paragraphs contained in the document.
+    # @param request GetParagraphWithoutNodePathRequest
+    # @return [File]
+    def get_paragraph_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_paragraph_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_paragraph_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # This resource represents one of the paragraphs contained in the document.
+    # @param request GetParagraphWithoutNodePathRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_paragraph_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraph_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_paragraph_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_paragraph_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/paragraphs/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_paragraph_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # This resource represents one of the paragraphs contained in the document.
+    # @param request GetParagraphWithoutNodePathOnlineRequest
+    # @return [File]
+    def get_paragraph_without_node_path_online(request)
+        begin
+        data, _status_code, _headers = get_paragraph_without_node_path_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_paragraph_without_node_path_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # This resource represents one of the paragraphs contained in the document.
+    # @param request GetParagraphWithoutNodePathOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def get_paragraph_without_node_path_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetParagraphWithoutNodePathOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_paragraph_without_node_path_online ...' if @api_client.config.debugging
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_paragraph_without_node_path_online' if @api_client.config.client_side_validation && request.index.nil?
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.get_paragraph_without_node_path_online' if @api_client.config.client_side_validation && request.document.nil?
+
+        # resource path
+        local_var_path = '/words/online/paragraphs/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_paragraph_without_node_path_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -5967,17 +11294,36 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.nil? ? '' : request.range_start_identifier.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.nil? ? '' : request.range_end_identifier.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6041,17 +11387,36 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6115,17 +11480,36 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs/{index}/font'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6187,16 +11571,35 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6258,16 +11661,35 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/sections/{sectionIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.nil? ? '' : request.section_index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6329,16 +11751,35 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/sections/{sectionIndex}/pageSetup'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.nil? ? '' : request.section_index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6398,15 +11839,34 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/sections'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6468,16 +11928,35 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/styles/{styleName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyleName') + '}', request.style_name.nil? ? '' : request.style_name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyleName') + '}', request.style_name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6539,16 +12018,35 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{styledNodePath}/style'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyledNodePath') + '}', request.styled_node_path.nil? ? '' : request.styled_node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyledNodePath') + '}', request.styled_node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6608,15 +12106,34 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/styles'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6673,22 +12190,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_table ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_table' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_table' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_table' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6752,17 +12290,36 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tableRowPath}/cells/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.nil? ? '' : request.table_row_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6826,17 +12383,36 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tableRowPath}/cells/{index}/cellformat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.nil? ? '' : request.table_row_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6893,22 +12469,43 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_table_properties ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_table_properties' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_table_properties' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_table_properties' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables/{index}/properties'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -6934,6 +12531,96 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_table_properties\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Returns a table properties.
+    # @param request GetTablePropertiesWithoutNodePathRequest
+    # @return [TablePropertiesResponse]
+    def get_table_properties_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_table_properties_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_table_properties_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Returns a table properties.
+    # @param request GetTablePropertiesWithoutNodePathRequest
+    # @return [Array<(TablePropertiesResponse, Fixnum, Hash)>]
+    # TablePropertiesResponse data, response status code and response headers
+    private def get_table_properties_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetTablePropertiesWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_table_properties_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_table_properties_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_table_properties_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/tables/{index}/properties'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'TablePropertiesResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_table_properties_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -6972,17 +12659,36 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tablePath}/rows/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.nil? ? '' : request.table_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7046,17 +12752,36 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tablePath}/rows/{index}/rowformat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.nil? ? '' : request.table_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7113,19 +12838,40 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.get_tables ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_tables' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.get_tables' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7151,6 +12897,183 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#get_tables\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Returns a list of tables that are contained in the document.
+    # @param request GetTablesWithoutNodePathRequest
+    # @return [TableLinkCollectionResponse]
+    def get_tables_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_tables_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_tables_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Returns a list of tables that are contained in the document.
+    # @param request GetTablesWithoutNodePathRequest
+    # @return [Array<(TableLinkCollectionResponse, Fixnum, Hash)>]
+    # TableLinkCollectionResponse data, response status code and response headers
+    private def get_tables_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetTablesWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_tables_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_tables_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/tables'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'TableLinkCollectionResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_tables_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Returns a table.
+    # @param request GetTableWithoutNodePathRequest
+    # @return [TableResponse]
+    def get_table_without_node_path(request)
+        begin
+        data, _status_code, _headers = get_table_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = get_table_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Returns a table.
+    # @param request GetTableWithoutNodePathRequest
+    # @return [Array<(TableResponse, Fixnum, Hash)>]
+    # TableResponse data, response status code and response headers
+    private def get_table_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? GetTableWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.get_table_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.get_table_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.get_table_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/tables/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'TableResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#get_table_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -7187,18 +13110,52 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/comments'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7259,22 +13216,58 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter drawing_object when calling WordsApi.insert_drawing_object' if @api_client.config.client_side_validation && request.drawing_object.nil?
         # verify the required parameter 'image_file' is set
         raise ArgumentError, 'Missing the required parameter image_file when calling WordsApi.insert_drawing_object' if @api_client.config.client_side_validation && request.image_file.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.insert_drawing_object' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7285,8 +13278,10 @@ module AsposeWordsCloud
 
         # form parameters
         form_params = {}
-        form_params[downcase_first_letter('DrawingObject')] = request.drawing_object.to_body.to_json
+        form_params[downcase_first_letter('DrawingObject')] = request.drawing_object
+
         form_params[downcase_first_letter('ImageFile')] = request.image_file
+
 
         # http body (model)
         post_body = nil
@@ -7302,6 +13297,119 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#insert_drawing_object\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Adds drawing object to document, returns added  drawing object's data.
+    # @param request InsertDrawingObjectWithoutNodePathRequest
+    # @return [DrawingObjectResponse]
+    def insert_drawing_object_without_node_path(request)
+        begin
+        data, _status_code, _headers = insert_drawing_object_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = insert_drawing_object_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Adds drawing object to document, returns added  drawing object's data.
+    # @param request InsertDrawingObjectWithoutNodePathRequest
+    # @return [Array<(DrawingObjectResponse, Fixnum, Hash)>]
+    # DrawingObjectResponse data, response status code and response headers
+    private def insert_drawing_object_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertDrawingObjectWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.insert_drawing_object_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_drawing_object_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'drawing_object' is set
+        raise ArgumentError, 'Missing the required parameter drawing_object when calling WordsApi.insert_drawing_object_without_node_path' if @api_client.config.client_side_validation && request.drawing_object.nil?
+        # verify the required parameter 'image_file' is set
+        raise ArgumentError, 'Missing the required parameter image_file when calling WordsApi.insert_drawing_object_without_node_path' if @api_client.config.client_side_validation && request.image_file.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/drawingObjects'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('DrawingObject')] = request.drawing_object
+
+        form_params[downcase_first_letter('ImageFile')] = request.image_file
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'DrawingObjectResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#insert_drawing_object_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -7335,23 +13443,64 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_field' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'field' is set
         raise ArgumentError, 'Missing the required parameter field when calling WordsApi.insert_field' if @api_client.config.client_side_validation && request.field.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.insert_field' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/fields'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
-        query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('InsertBeforeNode')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('InsertBeforeNode') + '}', request.insert_before_node.to_s)
+        else
+            query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7377,6 +13526,119 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#insert_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Adds field to document, returns inserted field's data.
+    # @param request InsertFieldWithoutNodePathRequest
+    # @return [FieldResponse]
+    def insert_field_without_node_path(request)
+        begin
+        data, _status_code, _headers = insert_field_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = insert_field_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Adds field to document, returns inserted field's data.
+    # @param request InsertFieldWithoutNodePathRequest
+    # @return [Array<(FieldResponse, Fixnum, Hash)>]
+    # FieldResponse data, response status code and response headers
+    private def insert_field_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertFieldWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.insert_field_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_field_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'field' is set
+        raise ArgumentError, 'Missing the required parameter field when calling WordsApi.insert_field_without_node_path' if @api_client.config.client_side_validation && request.field.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/fields'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('InsertBeforeNode')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('InsertBeforeNode') + '}', request.insert_before_node.to_s)
+        else
+            query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = @api_client.object_to_http_body(request.field)
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'FieldResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#insert_field_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -7410,22 +13672,58 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_footnote' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'footnote_dto' is set
         raise ArgumentError, 'Missing the required parameter footnote_dto when calling WordsApi.insert_footnote' if @api_client.config.client_side_validation && request.footnote_dto.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.insert_footnote' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/footnotes'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7451,6 +13749,113 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#insert_footnote\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Adds footnote to document, returns added footnote's data.
+    # @param request InsertFootnoteWithoutNodePathRequest
+    # @return [FootnoteResponse]
+    def insert_footnote_without_node_path(request)
+        begin
+        data, _status_code, _headers = insert_footnote_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = insert_footnote_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Adds footnote to document, returns added footnote's data.
+    # @param request InsertFootnoteWithoutNodePathRequest
+    # @return [Array<(FootnoteResponse, Fixnum, Hash)>]
+    # FootnoteResponse data, response status code and response headers
+    private def insert_footnote_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertFootnoteWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.insert_footnote_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_footnote_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'footnote_dto' is set
+        raise ArgumentError, 'Missing the required parameter footnote_dto when calling WordsApi.insert_footnote_without_node_path' if @api_client.config.client_side_validation && request.footnote_dto.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/footnotes'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = @api_client.object_to_http_body(request.footnote_dto)
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'FootnoteResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#insert_footnote_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -7484,23 +13889,64 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_form_field' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'form_field' is set
         raise ArgumentError, 'Missing the required parameter form_field when calling WordsApi.insert_form_field' if @api_client.config.client_side_validation && request.form_field.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.insert_form_field' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/formfields'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
-        query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('InsertBeforeNode')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('InsertBeforeNode') + '}', request.insert_before_node.to_s)
+        else
+            query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7526,6 +13972,119 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#insert_form_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Adds form field to paragraph, returns added form field's data.
+    # @param request InsertFormFieldWithoutNodePathRequest
+    # @return [FormFieldResponse]
+    def insert_form_field_without_node_path(request)
+        begin
+        data, _status_code, _headers = insert_form_field_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = insert_form_field_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Adds form field to paragraph, returns added form field's data.
+    # @param request InsertFormFieldWithoutNodePathRequest
+    # @return [Array<(FormFieldResponse, Fixnum, Hash)>]
+    # FormFieldResponse data, response status code and response headers
+    private def insert_form_field_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertFormFieldWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.insert_form_field_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_form_field_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'form_field' is set
+        raise ArgumentError, 'Missing the required parameter form_field when calling WordsApi.insert_form_field_without_node_path' if @api_client.config.client_side_validation && request.form_field.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/formfields'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('InsertBeforeNode')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('InsertBeforeNode') + '}', request.insert_before_node.to_s)
+        else
+            query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = @api_client.object_to_http_body(request.form_field)
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'FormFieldResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#insert_form_field_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -7564,19 +14123,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{sectionPath}/headersfooters'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.nil? ? '' : request.section_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionPath') + '}', request.section_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7638,18 +14231,52 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/lists'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7708,23 +14335,49 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_or_update_paragraph_tab_stop' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'dto' is set
         raise ArgumentError, 'Missing the required parameter dto when calling WordsApi.insert_or_update_paragraph_tab_stop' if @api_client.config.client_side_validation && request.dto.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.insert_or_update_paragraph_tab_stop' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.insert_or_update_paragraph_tab_stop' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/tabstops'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7750,6 +14403,104 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#insert_or_update_paragraph_tab_stop\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Insert or resplace tab stop if a tab stop with the position exists.
+    # @param request InsertOrUpdateParagraphTabStopWithoutNodePathRequest
+    # @return [TabStopsResponse]
+    def insert_or_update_paragraph_tab_stop_without_node_path(request)
+        begin
+        data, _status_code, _headers = insert_or_update_paragraph_tab_stop_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = insert_or_update_paragraph_tab_stop_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Insert or resplace tab stop if a tab stop with the position exists.
+    # @param request InsertOrUpdateParagraphTabStopWithoutNodePathRequest
+    # @return [Array<(TabStopsResponse, Fixnum, Hash)>]
+    # TabStopsResponse data, response status code and response headers
+    private def insert_or_update_paragraph_tab_stop_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertOrUpdateParagraphTabStopWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.insert_or_update_paragraph_tab_stop_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_or_update_paragraph_tab_stop_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'dto' is set
+        raise ArgumentError, 'Missing the required parameter dto when calling WordsApi.insert_or_update_paragraph_tab_stop_without_node_path' if @api_client.config.client_side_validation && request.dto.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.insert_or_update_paragraph_tab_stop_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/paragraphs/{index}/tabstops'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = @api_client.object_to_http_body(request.dto)
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'TabStopsResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#insert_or_update_paragraph_tab_stop_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -7786,18 +14537,52 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/PageNumbers'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7829,7 +14614,7 @@ module AsposeWordsCloud
 
     # Adds paragraph to document, returns added paragraph's data.
     # @param request InsertParagraphRequest
-    # @return [ParagraphResponse]
+    # @return [File]
     def insert_paragraph(request)
         begin
         data, _status_code, _headers = insert_paragraph_with_http_info(request)
@@ -7846,33 +14631,74 @@ module AsposeWordsCloud
 
     # Adds paragraph to document, returns added paragraph's data.
     # @param request InsertParagraphRequest
-    # @return [Array<(ParagraphResponse, Fixnum, Hash)>]
-    # ParagraphResponse data, response status code and response headers
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
     private def insert_paragraph_with_http_info(request)
         raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertParagraphRequest
 
         @api_client.config.logger.debug 'Calling API: WordsApi.insert_paragraph ...' if @api_client.config.debugging
         # verify the required parameter 'name' is set
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_paragraph' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.insert_paragraph' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'paragraph' is set
         raise ArgumentError, 'Missing the required parameter paragraph when calling WordsApi.insert_paragraph' if @api_client.config.client_side_validation && request.paragraph.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
-        query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('InsertBeforeNode')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('InsertBeforeNode') + '}', request.insert_before_node.to_s)
+        else
+            query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -7894,10 +14720,334 @@ module AsposeWordsCloud
                                                         form_params: form_params,
                                                         body: post_body,
                                                         auth_names: auth_names,
-                                                        return_type: 'ParagraphResponse')
+                                                        return_type: 'File')
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#insert_paragraph\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Adds paragraph to document, returns added paragraph's data.
+    # @param request InsertParagraphOnlineRequest
+    # @return [File]
+    def insert_paragraph_online(request)
+        begin
+        data, _status_code, _headers = insert_paragraph_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = insert_paragraph_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Adds paragraph to document, returns added paragraph's data.
+    # @param request InsertParagraphOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def insert_paragraph_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertParagraphOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.insert_paragraph_online ...' if @api_client.config.debugging
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.insert_paragraph_online' if @api_client.config.client_side_validation && request.node_path.nil?
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.insert_paragraph_online' if @api_client.config.client_side_validation && request.document.nil?
+        # verify the required parameter 'paragraph' is set
+        raise ArgumentError, 'Missing the required parameter paragraph when calling WordsApi.insert_paragraph_online' if @api_client.config.client_side_validation && request.paragraph.nil?
+
+        # resource path
+        local_var_path = '/words/online/{nodePath}/paragraphs'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('InsertBeforeNode')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('InsertBeforeNode') + '}', request.insert_before_node.to_s)
+        else
+            query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+        form_params[downcase_first_letter('Paragraph')] = request.paragraph
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#insert_paragraph_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Adds paragraph to document, returns added paragraph's data.
+    # @param request InsertParagraphWithoutNodePathRequest
+    # @return [File]
+    def insert_paragraph_without_node_path(request)
+        begin
+        data, _status_code, _headers = insert_paragraph_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = insert_paragraph_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Adds paragraph to document, returns added paragraph's data.
+    # @param request InsertParagraphWithoutNodePathRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def insert_paragraph_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertParagraphWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.insert_paragraph_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_paragraph_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'paragraph' is set
+        raise ArgumentError, 'Missing the required parameter paragraph when calling WordsApi.insert_paragraph_without_node_path' if @api_client.config.client_side_validation && request.paragraph.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/paragraphs'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('InsertBeforeNode')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('InsertBeforeNode') + '}', request.insert_before_node.to_s)
+        else
+            query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = @api_client.object_to_http_body(request.paragraph)
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#insert_paragraph_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Adds paragraph to document, returns added paragraph's data.
+    # @param request InsertParagraphWithoutNodePathOnlineRequest
+    # @return [File]
+    def insert_paragraph_without_node_path_online(request)
+        begin
+        data, _status_code, _headers = insert_paragraph_without_node_path_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = insert_paragraph_without_node_path_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Adds paragraph to document, returns added paragraph's data.
+    # @param request InsertParagraphWithoutNodePathOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def insert_paragraph_without_node_path_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertParagraphWithoutNodePathOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.insert_paragraph_without_node_path_online ...' if @api_client.config.debugging
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.insert_paragraph_without_node_path_online' if @api_client.config.client_side_validation && request.document.nil?
+        # verify the required parameter 'paragraph' is set
+        raise ArgumentError, 'Missing the required parameter paragraph when calling WordsApi.insert_paragraph_without_node_path_online' if @api_client.config.client_side_validation && request.paragraph.nil?
+
+        # resource path
+        local_var_path = '/words/online/paragraphs'[1..-1]
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('InsertBeforeNode')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('InsertBeforeNode') + '}', request.insert_before_node.to_s)
+        else
+            query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+        form_params[downcase_first_letter('Paragraph')] = request.paragraph
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#insert_paragraph_without_node_path_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -7936,20 +15086,59 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
-        query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('InsertBeforeNode')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('InsertBeforeNode') + '}', request.insert_before_node.to_s)
+        else
+            query_params[downcase_first_letter('InsertBeforeNode')] = request.insert_before_node unless request.insert_before_node.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8011,18 +15200,52 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/styles/insert'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8081,22 +15304,58 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_table' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'table' is set
         raise ArgumentError, 'Missing the required parameter table when calling WordsApi.insert_table' if @api_client.config.client_side_validation && request.table.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.insert_table' if @api_client.config.client_side_validation && request.node_path.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8160,19 +15419,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tableRowPath}/cells'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.nil? ? '' : request.table_row_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8236,19 +15529,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tablePath}/rows'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.nil? ? '' : request.table_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8274,6 +15601,113 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#insert_table_row\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Adds table to document, returns added table's data.
+    # @param request InsertTableWithoutNodePathRequest
+    # @return [TableResponse]
+    def insert_table_without_node_path(request)
+        begin
+        data, _status_code, _headers = insert_table_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = insert_table_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Adds table to document, returns added table's data.
+    # @param request InsertTableWithoutNodePathRequest
+    # @return [Array<(TableResponse, Fixnum, Hash)>]
+    # TableResponse data, response status code and response headers
+    private def insert_table_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? InsertTableWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.insert_table_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.insert_table_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'table' is set
+        raise ArgumentError, 'Missing the required parameter table when calling WordsApi.insert_table_without_node_path' if @api_client.config.client_side_validation && request.table.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/tables'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = @api_client.object_to_http_body(request.table)
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'TableResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#insert_table_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -8308,20 +15742,64 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/watermarks/images'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
-        query_params[downcase_first_letter('RotationAngle')] = request.rotation_angle unless request.rotation_angle.nil?
-        query_params[downcase_first_letter('Image')] = request.image unless request.image.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RotationAngle')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RotationAngle') + '}', request.rotation_angle.to_s)
+        else
+            query_params[downcase_first_letter('RotationAngle')] = request.rotation_angle unless request.rotation_angle.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Image')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Image') + '}', request.image.to_s)
+        else
+            query_params[downcase_first_letter('Image')] = request.image unless request.image.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8332,7 +15810,8 @@ module AsposeWordsCloud
 
         # form parameters
         form_params = {}
-        form_params[downcase_first_letter('ImageFile')] = request.image_file
+        form_params[downcase_first_letter('ImageFile')] = request.image_file unless request.image_file.nil?
+
 
         # http body (model)
         post_body = nil
@@ -8384,18 +15863,52 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/watermarks/texts'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8455,11 +15968,15 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/loadWebDocument'[1..-1]
-        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8521,15 +16038,30 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/file/move/{srcPath}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.nil? ? '' : request.src_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('DestPath')] = request.dest_path
-        query_params[downcase_first_letter('SrcStorageName')] = request.src_storage_name unless request.src_storage_name.nil?
-        query_params[downcase_first_letter('DestStorageName')] = request.dest_storage_name unless request.dest_storage_name.nil?
-        query_params[downcase_first_letter('VersionId')] = request.version_id unless request.version_id.nil?
+
+        if local_var_path.include? downcase_first_letter('SrcStorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcStorageName') + '}', request.src_storage_name.to_s)
+        else
+            query_params[downcase_first_letter('SrcStorageName')] = request.src_storage_name unless request.src_storage_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestStorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestStorageName') + '}', request.dest_storage_name.to_s)
+        else
+            query_params[downcase_first_letter('DestStorageName')] = request.dest_storage_name unless request.dest_storage_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('VersionId')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('VersionId') + '}', request.version_id.to_s)
+        else
+            query_params[downcase_first_letter('VersionId')] = request.version_id unless request.version_id.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8590,14 +16122,24 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/folder/move/{srcPath}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.nil? ? '' : request.src_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcPath') + '}', request.src_path.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('DestPath')] = request.dest_path
-        query_params[downcase_first_letter('SrcStorageName')] = request.src_storage_name unless request.src_storage_name.nil?
-        query_params[downcase_first_letter('DestStorageName')] = request.dest_storage_name unless request.dest_storage_name.nil?
+
+        if local_var_path.include? downcase_first_letter('SrcStorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('SrcStorageName') + '}', request.src_storage_name.to_s)
+        else
+            query_params[downcase_first_letter('SrcStorageName')] = request.src_storage_name unless request.src_storage_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestStorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestStorageName') + '}', request.dest_storage_name.to_s)
+        else
+            query_params[downcase_first_letter('DestStorageName')] = request.dest_storage_name unless request.dest_storage_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8622,78 +16164,6 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#move_folder\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-        end
-        [data, status_code, headers]
-    end
-
-    # Allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word.
-    # @param request OptimizeDocumentRequest
-    # @return [nil]
-    def optimize_document(request)
-        begin
-        data, _status_code, _headers = optimize_document_with_http_info(request)
-        rescue ApiError => e
-            if e.code == 401
-            request_token
-            data, _status_code, _headers = optimize_document_with_http_info(request)
-            else
-            raise
-            end
-        end
-        nil
-    end
-
-    # Allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word.
-    # @param request OptimizeDocumentRequest
-    # @return [Array<(nil, Fixnum, Hash)>]
-    # nil, response status code and response headers
-    private def optimize_document_with_http_info(request)
-        raise ArgumentError, 'Incorrect request type' unless request.is_a? OptimizeDocumentRequest
-
-        @api_client.config.logger.debug 'Calling API: WordsApi.optimize_document ...' if @api_client.config.debugging
-        # verify the required parameter 'name' is set
-        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.optimize_document' if @api_client.config.client_side_validation && request.name.nil?
-        # verify the required parameter 'options' is set
-        raise ArgumentError, 'Missing the required parameter options when calling WordsApi.optimize_document' if @api_client.config.client_side_validation && request.options.nil?
-
-        # resource path
-        local_var_path = '/words/{name}/compatibility/optimize'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
-
-        # query parameters
-        query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
-
-        # header parameters
-        header_params = {}
-        # HTTP header 'Accept' (if needed)
-        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
-        # HTTP header 'Content-Type'
-        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
-
-        # form parameters
-        form_params = {}
-
-        # http body (model)
-        post_body = @api_client.object_to_http_body(request.options)
-        auth_names = ['JWT']
-
-        data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
-                                                        header_params: header_params,
-                                                        query_params: query_params,
-                                                        form_params: form_params,
-                                                        body: post_body,
-                                                        auth_names: auth_names)
-        if @api_client.config.debugging
-        @api_client.config.logger.debug "API called:
-        WordsApi#optimize_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -8730,16 +16200,40 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/protection'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8799,16 +16293,40 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/revisions/rejectAll'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8870,18 +16388,42 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.nil? ? '' : request.range_start_identifier.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.nil? ? '' : request.range_end_identifier.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8940,24 +16482,51 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.render_drawing_object' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'format' is set
         raise ArgumentError, 'Missing the required parameter format when calling WordsApi.render_drawing_object' if @api_client.config.client_side_validation && request.format.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.render_drawing_object' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.render_drawing_object' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects/{index}/render'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('Format')] = request.format
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -8983,6 +16552,106 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#render_drawing_object\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Renders drawing object to specified format.
+    # @param request RenderDrawingObjectWithoutNodePathRequest
+    # @return [File]
+    def render_drawing_object_without_node_path(request)
+        begin
+        data, _status_code, _headers = render_drawing_object_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = render_drawing_object_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Renders drawing object to specified format.
+    # @param request RenderDrawingObjectWithoutNodePathRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def render_drawing_object_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? RenderDrawingObjectWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.render_drawing_object_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.render_drawing_object_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'format' is set
+        raise ArgumentError, 'Missing the required parameter format when calling WordsApi.render_drawing_object_without_node_path' if @api_client.config.client_side_validation && request.format.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.render_drawing_object_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/drawingObjects/{index}/render'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        query_params[downcase_first_letter('Format')] = request.format
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#render_drawing_object_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -9016,24 +16685,51 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.render_math_object' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'format' is set
         raise ArgumentError, 'Missing the required parameter format when calling WordsApi.render_math_object' if @api_client.config.client_side_validation && request.format.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.render_math_object' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.render_math_object' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/OfficeMathObjects/{index}/render'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('Format')] = request.format
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -9059,6 +16755,106 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#render_math_object\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Renders math object to specified format.
+    # @param request RenderMathObjectWithoutNodePathRequest
+    # @return [File]
+    def render_math_object_without_node_path(request)
+        begin
+        data, _status_code, _headers = render_math_object_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = render_math_object_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Renders math object to specified format.
+    # @param request RenderMathObjectWithoutNodePathRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def render_math_object_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? RenderMathObjectWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.render_math_object_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.render_math_object_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'format' is set
+        raise ArgumentError, 'Missing the required parameter format when calling WordsApi.render_math_object_without_node_path' if @api_client.config.client_side_validation && request.format.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.render_math_object_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/OfficeMathObjects/{index}/render'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        query_params[downcase_first_letter('Format')] = request.format
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#render_math_object_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -9097,18 +16893,43 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/pages/{pageIndex}/render'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('PageIndex') + '}', request.page_index.nil? ? '' : request.page_index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('PageIndex') + '}', request.page_index.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('Format')] = request.format
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -9167,24 +16988,51 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.render_paragraph' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'format' is set
         raise ArgumentError, 'Missing the required parameter format when calling WordsApi.render_paragraph' if @api_client.config.client_side_validation && request.format.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.render_paragraph' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.render_paragraph' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/render'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('Format')] = request.format
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -9210,6 +17058,106 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#render_paragraph\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Renders paragraph to specified format.
+    # @param request RenderParagraphWithoutNodePathRequest
+    # @return [File]
+    def render_paragraph_without_node_path(request)
+        begin
+        data, _status_code, _headers = render_paragraph_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = render_paragraph_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Renders paragraph to specified format.
+    # @param request RenderParagraphWithoutNodePathRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def render_paragraph_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? RenderParagraphWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.render_paragraph_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.render_paragraph_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'format' is set
+        raise ArgumentError, 'Missing the required parameter format when calling WordsApi.render_paragraph_without_node_path' if @api_client.config.client_side_validation && request.format.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.render_paragraph_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/paragraphs/{index}/render'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        query_params[downcase_first_letter('Format')] = request.format
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#render_paragraph_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -9243,24 +17191,51 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.render_table' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'format' is set
         raise ArgumentError, 'Missing the required parameter format when calling WordsApi.render_table' if @api_client.config.client_side_validation && request.format.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.render_table' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.render_table' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables/{index}/render'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('Format')] = request.format
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -9286,6 +17261,106 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#render_table\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Renders table to specified format.
+    # @param request RenderTableWithoutNodePathRequest
+    # @return [File]
+    def render_table_without_node_path(request)
+        begin
+        data, _status_code, _headers = render_table_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = render_table_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Renders table to specified format.
+    # @param request RenderTableWithoutNodePathRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def render_table_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? RenderTableWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.render_table_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.render_table_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'format' is set
+        raise ArgumentError, 'Missing the required parameter format when calling WordsApi.render_table_without_node_path' if @api_client.config.client_side_validation && request.format.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.render_table_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/tables/{index}/render'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        query_params[downcase_first_letter('Format')] = request.format
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#render_table_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -9322,18 +17397,52 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/replaceText'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -9397,18 +17506,42 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.nil? ? '' : request.range_start_identifier.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.nil? ? '' : request.range_end_identifier.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -9465,7 +17598,6 @@ module AsposeWordsCloud
         @api_client.config.logger.debug 'Calling API: WordsApi.reset_cache ...' if @api_client.config.debugging
         # resource path
         local_var_path = '/words/fonts/cache'[1..-1]
-        local_var_path = local_var_path.sub('//', '/')
 
         # query parameters
         query_params = {}
@@ -9529,16 +17661,40 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/saveAs'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -9564,6 +17720,80 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#save_as\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Converts document to destination format with detailed settings and saves result to storage.
+    # @param request SaveAsOnlineRequest
+    # @return [File]
+    def save_as_online(request)
+        begin
+        data, _status_code, _headers = save_as_online_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = save_as_online_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Converts document to destination format with detailed settings and saves result to storage.
+    # @param request SaveAsOnlineRequest
+    # @return [Array<(File, Fixnum, Hash)>]
+    # File data, response status code and response headers
+    private def save_as_online_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? SaveAsOnlineRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.save_as_online ...' if @api_client.config.debugging
+        # verify the required parameter 'document' is set
+        raise ArgumentError, 'Missing the required parameter document when calling WordsApi.save_as_online' if @api_client.config.client_side_validation && request.document.nil?
+        # verify the required parameter 'save_options_data' is set
+        raise ArgumentError, 'Missing the required parameter save_options_data when calling WordsApi.save_as_online' if @api_client.config.client_side_validation && request.save_options_data.nil?
+
+        # resource path
+        local_var_path = '/words/online/saveAs'[1..-1]
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('Document')] = request.document
+
+        form_params[downcase_first_letter('SaveOptionsData')] = request.save_options_data
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'File')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#save_as_online\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -9602,17 +17832,36 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.nil? ? '' : request.range_start_identifier.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.nil? ? '' : request.range_end_identifier.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeStartIdentifier') + '}', request.range_start_identifier.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('RangeEndIdentifier') + '}', request.range_end_identifier.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -9674,33 +17923,142 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/saveAs/tiff'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('UseAntiAliasing')] = request.use_anti_aliasing unless request.use_anti_aliasing.nil?
-        query_params[downcase_first_letter('UseHighQualityRendering')] = request.use_high_quality_rendering unless request.use_high_quality_rendering.nil?
-        query_params[downcase_first_letter('ImageBrightness')] = request.image_brightness unless request.image_brightness.nil?
-        query_params[downcase_first_letter('ImageColorMode')] = request.image_color_mode unless request.image_color_mode.nil?
-        query_params[downcase_first_letter('ImageContrast')] = request.image_contrast unless request.image_contrast.nil?
-        query_params[downcase_first_letter('NumeralFormat')] = request.numeral_format unless request.numeral_format.nil?
-        query_params[downcase_first_letter('PageCount')] = request.page_count unless request.page_count.nil?
-        query_params[downcase_first_letter('PageIndex')] = request.page_index unless request.page_index.nil?
-        query_params[downcase_first_letter('PaperColor')] = request.paper_color unless request.paper_color.nil?
-        query_params[downcase_first_letter('PixelFormat')] = request.pixel_format unless request.pixel_format.nil?
-        query_params[downcase_first_letter('Resolution')] = request.resolution unless request.resolution.nil?
-        query_params[downcase_first_letter('Scale')] = request.scale unless request.scale.nil?
-        query_params[downcase_first_letter('TiffCompression')] = request.tiff_compression unless request.tiff_compression.nil?
-        query_params[downcase_first_letter('DmlRenderingMode')] = request.dml_rendering_mode unless request.dml_rendering_mode.nil?
-        query_params[downcase_first_letter('DmlEffectsRenderingMode')] = request.dml_effects_rendering_mode unless request.dml_effects_rendering_mode.nil?
-        query_params[downcase_first_letter('TiffBinarizationMethod')] = request.tiff_binarization_method unless request.tiff_binarization_method.nil?
-        query_params[downcase_first_letter('ZipOutput')] = request.zip_output unless request.zip_output.nil?
-        query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('UseAntiAliasing')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('UseAntiAliasing') + '}', request.use_anti_aliasing.to_s)
+        else
+            query_params[downcase_first_letter('UseAntiAliasing')] = request.use_anti_aliasing unless request.use_anti_aliasing.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('UseHighQualityRendering')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('UseHighQualityRendering') + '}', request.use_high_quality_rendering.to_s)
+        else
+            query_params[downcase_first_letter('UseHighQualityRendering')] = request.use_high_quality_rendering unless request.use_high_quality_rendering.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('ImageBrightness')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('ImageBrightness') + '}', request.image_brightness.to_s)
+        else
+            query_params[downcase_first_letter('ImageBrightness')] = request.image_brightness unless request.image_brightness.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('ImageColorMode')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('ImageColorMode') + '}', request.image_color_mode.to_s)
+        else
+            query_params[downcase_first_letter('ImageColorMode')] = request.image_color_mode unless request.image_color_mode.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('ImageContrast')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('ImageContrast') + '}', request.image_contrast.to_s)
+        else
+            query_params[downcase_first_letter('ImageContrast')] = request.image_contrast unless request.image_contrast.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('NumeralFormat')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('NumeralFormat') + '}', request.numeral_format.to_s)
+        else
+            query_params[downcase_first_letter('NumeralFormat')] = request.numeral_format unless request.numeral_format.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('PageCount')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('PageCount') + '}', request.page_count.to_s)
+        else
+            query_params[downcase_first_letter('PageCount')] = request.page_count unless request.page_count.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('PageIndex')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('PageIndex') + '}', request.page_index.to_s)
+        else
+            query_params[downcase_first_letter('PageIndex')] = request.page_index unless request.page_index.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('PaperColor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('PaperColor') + '}', request.paper_color.to_s)
+        else
+            query_params[downcase_first_letter('PaperColor')] = request.paper_color unless request.paper_color.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('PixelFormat')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('PixelFormat') + '}', request.pixel_format.to_s)
+        else
+            query_params[downcase_first_letter('PixelFormat')] = request.pixel_format unless request.pixel_format.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Resolution')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Resolution') + '}', request.resolution.to_s)
+        else
+            query_params[downcase_first_letter('Resolution')] = request.resolution unless request.resolution.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Scale')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Scale') + '}', request.scale.to_s)
+        else
+            query_params[downcase_first_letter('Scale')] = request.scale unless request.scale.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('TiffCompression')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('TiffCompression') + '}', request.tiff_compression.to_s)
+        else
+            query_params[downcase_first_letter('TiffCompression')] = request.tiff_compression unless request.tiff_compression.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DmlRenderingMode')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DmlRenderingMode') + '}', request.dml_rendering_mode.to_s)
+        else
+            query_params[downcase_first_letter('DmlRenderingMode')] = request.dml_rendering_mode unless request.dml_rendering_mode.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DmlEffectsRenderingMode')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DmlEffectsRenderingMode') + '}', request.dml_effects_rendering_mode.to_s)
+        else
+            query_params[downcase_first_letter('DmlEffectsRenderingMode')] = request.dml_effects_rendering_mode unless request.dml_effects_rendering_mode.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('TiffBinarizationMethod')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('TiffBinarizationMethod') + '}', request.tiff_binarization_method.to_s)
+        else
+            query_params[downcase_first_letter('TiffBinarizationMethod')] = request.tiff_binarization_method unless request.tiff_binarization_method.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('ZipOutput')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('ZipOutput') + '}', request.zip_output.to_s)
+        else
+            query_params[downcase_first_letter('ZipOutput')] = request.zip_output unless request.zip_output.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -9762,16 +18120,36 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/search'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('Pattern')] = request.pattern
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -9833,21 +18211,66 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/split'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
         query_params[downcase_first_letter('Format')] = request.format
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('From')] = request.from unless request.from.nil?
-        query_params[downcase_first_letter('To')] = request.to unless request.to.nil?
-        query_params[downcase_first_letter('ZipOutput')] = request.zip_output unless request.zip_output.nil?
-        query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('From')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('From') + '}', request.from.to_s)
+        else
+            query_params[downcase_first_letter('From')] = request.from unless request.from.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('To')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('To') + '}', request.to.to_s)
+        else
+            query_params[downcase_first_letter('To')] = request.to unless request.to.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('ZipOutput')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('ZipOutput') + '}', request.zip_output.to_s)
+        else
+            query_params[downcase_first_letter('ZipOutput')] = request.zip_output unless request.zip_output.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('FontsLocation')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('FontsLocation') + '}', request.fonts_location.to_s)
+        else
+            query_params[downcase_first_letter('FontsLocation')] = request.fonts_location unless request.fonts_location.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -9909,16 +18332,40 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/protection'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -9982,19 +18429,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/bookmarks/{bookmarkName}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('BookmarkName') + '}', request.bookmark_name.nil? ? '' : request.bookmark_name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('BookmarkName') + '}', request.bookmark_name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10053,25 +18534,61 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.update_border' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'border_properties' is set
         raise ArgumentError, 'Missing the required parameter border_properties when calling WordsApi.update_border' if @api_client.config.client_side_validation && request.border_properties.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.update_border' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'border_type' is set
         raise ArgumentError, 'Missing the required parameter border_type when calling WordsApi.update_border' if @api_client.config.client_side_validation && request.border_type.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/borders/{borderType}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('BorderType') + '}', request.border_type.nil? ? '' : request.border_type.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('BorderType') + '}', request.border_type.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10135,19 +18652,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/comments/{commentIndex}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('CommentIndex') + '}', request.comment_index.nil? ? '' : request.comment_index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('CommentIndex') + '}', request.comment_index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10208,25 +18759,61 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter drawing_object when calling WordsApi.update_drawing_object' if @api_client.config.client_side_validation && request.drawing_object.nil?
         # verify the required parameter 'image_file' is set
         raise ArgumentError, 'Missing the required parameter image_file when calling WordsApi.update_drawing_object' if @api_client.config.client_side_validation && request.image_file.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.update_drawing_object' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.update_drawing_object' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/drawingObjects/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10237,8 +18824,10 @@ module AsposeWordsCloud
 
         # form parameters
         form_params = {}
-        form_params[downcase_first_letter('DrawingObject')] = request.drawing_object.to_body.to_json
+        form_params[downcase_first_letter('DrawingObject')] = request.drawing_object
+
         form_params[downcase_first_letter('ImageFile')] = request.image_file
+
 
         # http body (model)
         post_body = nil
@@ -10254,6 +18843,122 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#update_drawing_object\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Updates drawing object, returns updated  drawing object's data.
+    # @param request UpdateDrawingObjectWithoutNodePathRequest
+    # @return [DrawingObjectResponse]
+    def update_drawing_object_without_node_path(request)
+        begin
+        data, _status_code, _headers = update_drawing_object_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = update_drawing_object_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Updates drawing object, returns updated  drawing object's data.
+    # @param request UpdateDrawingObjectWithoutNodePathRequest
+    # @return [Array<(DrawingObjectResponse, Fixnum, Hash)>]
+    # DrawingObjectResponse data, response status code and response headers
+    private def update_drawing_object_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? UpdateDrawingObjectWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.update_drawing_object_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.update_drawing_object_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'drawing_object' is set
+        raise ArgumentError, 'Missing the required parameter drawing_object when calling WordsApi.update_drawing_object_without_node_path' if @api_client.config.client_side_validation && request.drawing_object.nil?
+        # verify the required parameter 'image_file' is set
+        raise ArgumentError, 'Missing the required parameter image_file when calling WordsApi.update_drawing_object_without_node_path' if @api_client.config.client_side_validation && request.image_file.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.update_drawing_object_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/drawingObjects/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+        # form parameters
+        form_params = {}
+        form_params[downcase_first_letter('DrawingObject')] = request.drawing_object
+
+        form_params[downcase_first_letter('ImageFile')] = request.image_file
+
+
+        # http body (model)
+        post_body = nil
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'DrawingObjectResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#update_drawing_object_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -10287,25 +18992,61 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.update_field' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'field' is set
         raise ArgumentError, 'Missing the required parameter field when calling WordsApi.update_field' if @api_client.config.client_side_validation && request.field.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.update_field' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.update_field' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/fields/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10365,16 +19106,40 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/updateFields'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10433,25 +19198,61 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.update_footnote' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'footnote_dto' is set
         raise ArgumentError, 'Missing the required parameter footnote_dto when calling WordsApi.update_footnote' if @api_client.config.client_side_validation && request.footnote_dto.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.update_footnote' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.update_footnote' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/footnotes/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10477,6 +19278,116 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#update_footnote\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Updates footnote's properties, returns updated run's data.
+    # @param request UpdateFootnoteWithoutNodePathRequest
+    # @return [FootnoteResponse]
+    def update_footnote_without_node_path(request)
+        begin
+        data, _status_code, _headers = update_footnote_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = update_footnote_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Updates footnote's properties, returns updated run's data.
+    # @param request UpdateFootnoteWithoutNodePathRequest
+    # @return [Array<(FootnoteResponse, Fixnum, Hash)>]
+    # FootnoteResponse data, response status code and response headers
+    private def update_footnote_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? UpdateFootnoteWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.update_footnote_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.update_footnote_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'footnote_dto' is set
+        raise ArgumentError, 'Missing the required parameter footnote_dto when calling WordsApi.update_footnote_without_node_path' if @api_client.config.client_side_validation && request.footnote_dto.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.update_footnote_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/footnotes/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = @api_client.object_to_http_body(request.footnote_dto)
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'FootnoteResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#update_footnote_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -10510,25 +19421,61 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.update_form_field' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'form_field' is set
         raise ArgumentError, 'Missing the required parameter form_field when calling WordsApi.update_form_field' if @api_client.config.client_side_validation && request.form_field.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.update_form_field' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.update_form_field' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/formfields/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10554,6 +19501,116 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#update_form_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Updates properties of form field, returns updated form field.
+    # @param request UpdateFormFieldWithoutNodePathRequest
+    # @return [FormFieldResponse]
+    def update_form_field_without_node_path(request)
+        begin
+        data, _status_code, _headers = update_form_field_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = update_form_field_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Updates properties of form field, returns updated form field.
+    # @param request UpdateFormFieldWithoutNodePathRequest
+    # @return [Array<(FormFieldResponse, Fixnum, Hash)>]
+    # FormFieldResponse data, response status code and response headers
+    private def update_form_field_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? UpdateFormFieldWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.update_form_field_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.update_form_field_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'form_field' is set
+        raise ArgumentError, 'Missing the required parameter form_field when calling WordsApi.update_form_field_without_node_path' if @api_client.config.client_side_validation && request.form_field.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.update_form_field_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/formfields/{index}'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = @api_client.object_to_http_body(request.form_field)
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'FormFieldResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#update_form_field_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -10592,19 +19649,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/lists/{listId}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListId') + '}', request.list_id.nil? ? '' : request.list_id.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListId') + '}', request.list_id.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10670,20 +19761,54 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/lists/{listId}/listLevels/{listLevel}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListId') + '}', request.list_id.nil? ? '' : request.list_id.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListLevel') + '}', request.list_level.nil? ? '' : request.list_level.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListId') + '}', request.list_id.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ListLevel') + '}', request.list_level.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10742,25 +19867,61 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.update_paragraph_format' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'dto' is set
         raise ArgumentError, 'Missing the required parameter dto when calling WordsApi.update_paragraph_format' if @api_client.config.client_side_validation && request.dto.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.update_paragraph_format' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.update_paragraph_format' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/format'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10819,25 +19980,61 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.update_paragraph_list_format' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'dto' is set
         raise ArgumentError, 'Missing the required parameter dto when calling WordsApi.update_paragraph_list_format' if @api_client.config.client_side_validation && request.dto.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.update_paragraph_list_format' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.update_paragraph_list_format' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/paragraphs/{index}/listFormat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10863,6 +20060,116 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#update_paragraph_list_format\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Updates paragraph list format properties, returns updated list format properties.
+    # @param request UpdateParagraphListFormatWithoutNodePathRequest
+    # @return [ParagraphListFormatResponse]
+    def update_paragraph_list_format_without_node_path(request)
+        begin
+        data, _status_code, _headers = update_paragraph_list_format_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = update_paragraph_list_format_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Updates paragraph list format properties, returns updated list format properties.
+    # @param request UpdateParagraphListFormatWithoutNodePathRequest
+    # @return [Array<(ParagraphListFormatResponse, Fixnum, Hash)>]
+    # ParagraphListFormatResponse data, response status code and response headers
+    private def update_paragraph_list_format_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? UpdateParagraphListFormatWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.update_paragraph_list_format_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.update_paragraph_list_format_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'dto' is set
+        raise ArgumentError, 'Missing the required parameter dto when calling WordsApi.update_paragraph_list_format_without_node_path' if @api_client.config.client_side_validation && request.dto.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.update_paragraph_list_format_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/paragraphs/{index}/listFormat'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = @api_client.object_to_http_body(request.dto)
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'ParagraphListFormatResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#update_paragraph_list_format_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -10903,20 +20210,54 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs/{index}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -10982,20 +20323,54 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{paragraphPath}/runs/{index}/font'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.nil? ? '' : request.paragraph_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('ParagraphPath') + '}', request.paragraph_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -11059,19 +20434,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/sections/{sectionIndex}/pageSetup'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.nil? ? '' : request.section_index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('SectionIndex') + '}', request.section_index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -11135,19 +20544,53 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/styles/{styleName}/update'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyleName') + '}', request.style_name.nil? ? '' : request.style_name.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('StyleName') + '}', request.style_name.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -11213,20 +20656,54 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tableRowPath}/cells/{index}/cellformat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.nil? ? '' : request.table_row_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TableRowPath') + '}', request.table_row_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -11285,25 +20762,61 @@ module AsposeWordsCloud
         raise ArgumentError, 'Missing the required parameter name when calling WordsApi.update_table_properties' if @api_client.config.client_side_validation && request.name.nil?
         # verify the required parameter 'properties' is set
         raise ArgumentError, 'Missing the required parameter properties when calling WordsApi.update_table_properties' if @api_client.config.client_side_validation && request.properties.nil?
+        # verify the required parameter 'node_path' is set
+        raise ArgumentError, 'Missing the required parameter node_path when calling WordsApi.update_table_properties' if @api_client.config.client_side_validation && request.node_path.nil?
         # verify the required parameter 'index' is set
         raise ArgumentError, 'Missing the required parameter index when calling WordsApi.update_table_properties' if @api_client.config.client_side_validation && request.index.nil?
 
         # resource path
         local_var_path = '/words/{name}/{nodePath}/tables/{index}/properties'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.nil? ? '' : request.node_path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('NodePath') + '}', request.node_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -11329,6 +20842,116 @@ module AsposeWordsCloud
         if @api_client.config.debugging
         @api_client.config.logger.debug "API called:
         WordsApi#update_table_properties\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        end
+        [data, status_code, headers]
+    end
+
+    # Updates a table properties.
+    # @param request UpdateTablePropertiesWithoutNodePathRequest
+    # @return [TablePropertiesResponse]
+    def update_table_properties_without_node_path(request)
+        begin
+        data, _status_code, _headers = update_table_properties_without_node_path_with_http_info(request)
+        rescue ApiError => e
+            if e.code == 401
+            request_token
+            data, _status_code, _headers = update_table_properties_without_node_path_with_http_info(request)
+            else
+            raise
+            end
+        end
+        data
+    end
+
+    # Updates a table properties.
+    # @param request UpdateTablePropertiesWithoutNodePathRequest
+    # @return [Array<(TablePropertiesResponse, Fixnum, Hash)>]
+    # TablePropertiesResponse data, response status code and response headers
+    private def update_table_properties_without_node_path_with_http_info(request)
+        raise ArgumentError, 'Incorrect request type' unless request.is_a? UpdateTablePropertiesWithoutNodePathRequest
+
+        @api_client.config.logger.debug 'Calling API: WordsApi.update_table_properties_without_node_path ...' if @api_client.config.debugging
+        # verify the required parameter 'name' is set
+        raise ArgumentError, 'Missing the required parameter name when calling WordsApi.update_table_properties_without_node_path' if @api_client.config.client_side_validation && request.name.nil?
+        # verify the required parameter 'properties' is set
+        raise ArgumentError, 'Missing the required parameter properties when calling WordsApi.update_table_properties_without_node_path' if @api_client.config.client_side_validation && request.properties.nil?
+        # verify the required parameter 'index' is set
+        raise ArgumentError, 'Missing the required parameter index when calling WordsApi.update_table_properties_without_node_path' if @api_client.config.client_side_validation && request.index.nil?
+
+        # resource path
+        local_var_path = '/words/{name}/tables/{index}/properties'[1..-1]
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
+
+        # query parameters
+        query_params = {}
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
+
+        # header parameters
+        header_params = {}
+        # HTTP header 'Accept' (if needed)
+        header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+        # HTTP header 'Content-Type'
+        header_params['Content-Type'] = @api_client.select_header_content_type(['application/xml', 'application/json'])
+
+        # form parameters
+        form_params = {}
+
+        # http body (model)
+        post_body = @api_client.object_to_http_body(request.properties)
+        auth_names = ['JWT']
+
+        data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+                                                        header_params: header_params,
+                                                        query_params: query_params,
+                                                        form_params: form_params,
+                                                        body: post_body,
+                                                        auth_names: auth_names,
+                                                        return_type: 'TablePropertiesResponse')
+        if @api_client.config.debugging
+        @api_client.config.logger.debug "API called:
+        WordsApi#update_table_properties_without_node_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
         [data, status_code, headers]
     end
@@ -11369,20 +20992,54 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/{name}/{tablePath}/rows/{index}/rowformat'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.nil? ? '' : request.name.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.nil? ? '' : request.table_path.to_s)
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.nil? ? '' : request.index.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Name') + '}', request.name.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('TablePath') + '}', request.table_path.to_s)
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Index') + '}', request.index.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
-        query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
-        query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
-        query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
-        query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
-        query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
-        query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        if local_var_path.include? downcase_first_letter('Folder')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Folder') + '}', request.folder.to_s)
+        else
+            query_params[downcase_first_letter('Folder')] = request.folder unless request.folder.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Storage')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Storage') + '}', request.storage.to_s)
+        else
+            query_params[downcase_first_letter('Storage')] = request.storage unless request.storage.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('LoadEncoding')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('LoadEncoding') + '}', request.load_encoding.to_s)
+        else
+            query_params[downcase_first_letter('LoadEncoding')] = request.load_encoding unless request.load_encoding.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('Password')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('Password') + '}', request.password.to_s)
+        else
+            query_params[downcase_first_letter('Password')] = request.password unless request.password.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('DestFileName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('DestFileName') + '}', request.dest_file_name.to_s)
+        else
+            query_params[downcase_first_letter('DestFileName')] = request.dest_file_name unless request.dest_file_name.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionAuthor')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionAuthor') + '}', request.revision_author.to_s)
+        else
+            query_params[downcase_first_letter('RevisionAuthor')] = request.revision_author unless request.revision_author.nil?
+        end
+
+        if local_var_path.include? downcase_first_letter('RevisionDateTime')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('RevisionDateTime') + '}', request.revision_date_time.to_s)
+        else
+            query_params[downcase_first_letter('RevisionDateTime')] = request.revision_date_time unless request.revision_date_time.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -11444,12 +21101,16 @@ module AsposeWordsCloud
 
         # resource path
         local_var_path = '/words/storage/file/{path}'[1..-1]
-        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.nil? ? '' : request.path.to_s)
-        local_var_path = local_var_path.sub('//', '/')
+        local_var_path = local_var_path.sub('{' + downcase_first_letter('Path') + '}', request.path.to_s)
 
         # query parameters
         query_params = {}
-        query_params[downcase_first_letter('StorageName')] = request.storage_name unless request.storage_name.nil?
+        if local_var_path.include? downcase_first_letter('StorageName')
+            local_var_path = local_var_path.sub('{' + downcase_first_letter('StorageName') + '}', request.storage_name.to_s)
+        else
+            query_params[downcase_first_letter('StorageName')] = request.storage_name unless request.storage_name.nil?
+        end
+
 
         # header parameters
         header_params = {}
@@ -11461,6 +21122,7 @@ module AsposeWordsCloud
         # form parameters
         form_params = {}
         form_params[downcase_first_letter('FileContent')] = request.file_content
+
 
         # http body (model)
         post_body = nil

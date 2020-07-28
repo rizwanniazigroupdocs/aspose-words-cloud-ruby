@@ -29,19 +29,19 @@ module AsposeWordsCloud
   # Request model for get_document_field_names_online operation.
   #
   class GetDocumentFieldNamesOnlineRequest
-    # File with template.
-    attr_accessor :template
+    # The document.
+    attr_accessor :document
 
-    # Use non merge fields or not.
+    # If true, result includes "mustache" field names.
     attr_accessor :use_non_merge_fields
 
     #
     # Initializes a new instance.
-    # @param template File with template.
-    # @param use_non_merge_fields Use non merge fields or not.
+    # @param document The document.
+    # @param use_non_merge_fields If true, result includes "mustache" field names.
 
-    def initialize(template, use_non_merge_fields = nil)
-      self.template = template
+    def initialize(document, use_non_merge_fields = nil)
+      self.document = document
       self.use_non_merge_fields = use_non_merge_fields
     end
   end
