@@ -58,7 +58,7 @@ module AsposeWordsCloud
     def test_create_document
       remote_file_name = 'TestCreateDocument.doc'
 
-      request = CreateDocumentRequest.new(nil, remote_file_name, remote_data_folder)
+      request = CreateDocumentRequest.new(remote_file_name, remote_data_folder, nil)
 
       result = @words_api.create_document(request)
       assert_equal false, result.nil?

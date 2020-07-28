@@ -55,6 +55,19 @@ module AsposeWordsCloud
     end
 
     #
+    # Test for converting document online to one of the available formats.
+    #
+    def test_save_as_online
+      local_name = 'test_multi_pages.docx'
+
+      request_save_options_data = SaveOptionsData.new({:SaveFormat => 'pdf', :FileName => remote_test_out + '/TestSaveAs.pdf'})
+      request = SaveAsOnlineRequest.new(File.open(File.join(local_test_folder, 'Common/' + local_name)), request_save_options_data, nil)
+
+      result = @words_api.save_as_online(request)
+      assert_equal false, result.nil?
+    end
+
+    #
     # Test for converting document to one of the available formats.
     #
     def test_save_as_docx
