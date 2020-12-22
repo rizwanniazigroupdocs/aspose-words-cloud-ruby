@@ -1,6 +1,6 @@
-![](https://img.shields.io/badge/api-v4.0-lightgrey) ![Gem](https://img.shields.io/gem/v/aspose_words_cloud) ![Gem](https://img.shields.io/gem/dt/aspose_words_cloud) [![GitHub license](https://img.shields.io/github/license/aspose_words_cloud/aspose-words-cloud-ruby)](https://github.com/aspose-words-cloud/aspose-words-cloud-ruby/blob/master/LICENSE)
+![](https://img.shields.io/badge/api-v4.0-lightgrey) ![Gem](https://img.shields.io/gem/v/aspose_words_cloud) ![Gem](https://img.shields.io/gem/dt/aspose_words_cloud) [![GitHub license](https://img.shields.io/github/license/aspose-words-cloud/aspose-words-cloud-ruby)](https://github.com/aspose-words-cloud/aspose-words-cloud-ruby/blob/master/LICENSE)
 
-# Node.js SDK for Word Documents Processing in the Cloud
+# Ruby SDK for Word Documents Processing in the Cloud
 [Aspose.Words Cloud SDK for Ruby](https://products.aspose.cloud/words/ruby) allows to work with Word document headers, footers, page numbering, tables, sections, document comments, drawing objects, FormFields, fonts, hyperlinks, ranges, paragraphs, math objects, watermarks, revisions and document protection. It also assists in appending documents, splitting documents as well as converting document to other supported file formats. Please feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/wordscloud/Developer+Guide) for all possible usage scenarios. 
 Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/wordscloud/Developer+Guide) & [API Reference](https://apireference.aspose.cloud/words/) to know all about Aspose.Words Cloud API. 
 
