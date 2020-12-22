@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/api-v4.0-lightgrey) ![Gem](https://img.shields.io/gem/v/aspose_words_cloud) ![Gem](https://img.shields.io/gem/dt/aspose_words_cloud) [![GitHub license](https://img.shields.io/github/license/aspose_words_cloud/aspose_words_cloud_ruby)](https://github.com/aspose-words-cloud/aspose-words-cloud-ruby/blob/master/LICENSE)
+![](https://img.shields.io/badge/api-v4.0-lightgrey) ![Gem](https://img.shields.io/gem/v/aspose_words_cloud) ![Gem](https://img.shields.io/gem/dt/aspose_words_cloud) [![GitHub license](https://img.shields.io/github/license/aspose_words_cloud/aspose-words-cloud-ruby)](https://github.com/aspose-words-cloud/aspose-words-cloud-ruby/blob/master/LICENSE)
 
 # Node.js SDK for Word Documents Processing in the Cloud
 [Aspose.Words Cloud SDK for Ruby](https://products.aspose.cloud/words/ruby) allows to work with Word document headers, footers, page numbering, tables, sections, document comments, drawing objects, FormFields, fonts, hyperlinks, ranges, paragraphs, math objects, watermarks, revisions and document protection. It also assists in appending documents, splitting documents as well as converting document to other supported file formats. Please feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/wordscloud/Developer+Guide) for all possible usage scenarios. 
@@ -65,54 +65,6 @@ Check out the [Developer's Guide](https://docs.aspose.cloud/display/wordscloud/D
 
 - Added 'Markdown' save format
 - Added endpoint to update paragraph format without node path (PUT '/words/{name}/paragraphs/{index}/format')
-
-
-## Enhancements in Version 20.6
-
-- Added new methods:
-  - DeleteAllParagraphTabStopsWithoutNodePath
-  - DeleteParagraphTabStopWithoutNodePath
-  - GetParagraphTabStopsWithoutNodePath
-  - InsertOrUpdateParagraphTabStopWithoutNodePath
-  - InsertParagraphWithoutNodePath
-  - UpdateParagraphFormatWithoutNodePath
-  - UpdateParagraphListFormatWithoutNodePath
-  - DeleteParagraphListFormatWithoutNodePath
-- DrawingObject related methods have been changed body content. Special request classes are introduced instead of strings.
-- InsertOrUpdateParagraphTabStop, DeleteParagraphTabStop methods have been changed parameter order
-- OoxmlSaveOptionsData.CompressionLevel property has been added
-
-
-## Enhancements in Version 20.5
-
-- Added methods to work with Word document lists
-  - GetLists
-  - GetList
-  - InsertList
-  - UpdateList
-  - UpdateListLevel
-- Added methods to work with styles
-  - GetStyles
-  - UpdateStyle
-  - InsertStyle
-  - CopyStyle
-  - GetStyleFromDocumentElement
-  - ApplyStyleToDocumentElement
-- Added methods to work with paragraph list format
-  - GetParagraphListFormat
-  - GetParagraphListFormatWithoutNodePath
-  - UpdateParagraphListFormat
-  - DeleteParagraphListFormat
-- Added methods to work with paragraph tab stops
-  - GetParagraphTabStops
-  - InsertOrUpdateParagraphTabStop
-  - DeleteAllParagraphTabStops
-  - DeleteParagraphTabStop
-- Added methods to build reports
-  - BuildReport
-  - BuildReportOnline
-- Added Shading property to ParagraphFormat
-
 
 ## How to use the SDK?
 The complete source code is available in this repository folder. You can either directly use it in your project via source code or get [RubyGem](https://rubygems.org/gems/aspose_words_cloud) (recommended). For more details, please visit our [documentation website](https://docs.aspose.cloud/display/wordscloud/Available+SDKs).
